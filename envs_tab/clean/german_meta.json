@@ -1,0 +1,246 @@
+{
+ "dataset": "german",
+ "n": 1000,
+ "split_seed": 144,
+ "findings": {
+  "chk_negative": {
+   "name": "Checking account balance",
+   "finding_text": "the applicant's checking account has a negative balance",
+   "threshold": "chk == A11 (< 0 DM)",
+   "is_placebo": false,
+   "prevalence_train": 0.27,
+   "corr_train": 0.2654243731222845,
+   "emp_s1": 0.45,
+   "emp_s0": 0.19285714285714287,
+   "missing_rate": 0.0
+  },
+  "no_checking": {
+   "name": "Checking account existence",
+   "finding_text": "the applicant has no checking account with the bank",
+   "threshold": "chk == A14",
+   "is_placebo": false,
+   "prevalence_train": 0.39666666666666667,
+   "corr_train": -0.3226541967649961,
+   "emp_s1": 0.15555555555555556,
+   "emp_s0": 0.5,
+   "missing_rate": 0.0
+  },
+  "long_term": {
+   "name": "Loan duration",
+   "finding_text": "the requested loan term is 36 months or longer",
+   "threshold": "dur >= 36",
+   "is_placebo": false,
+   "prevalence_train": 0.17166666666666666,
+   "corr_train": 0.19386062266999643,
+   "emp_s1": 0.2833333333333333,
+   "emp_s0": 0.12380952380952381,
+   "missing_rate": 0.0
+  },
+  "large_amount": {
+   "name": "Loan amount",
+   "finding_text": "the requested amount is 7,500 DM or more",
+   "threshold": "amount >= 7500",
+   "is_placebo": false,
+   "prevalence_train": 0.075,
+   "corr_train": 0.18641092980035967,
+   "emp_s1": 0.15,
+   "emp_s0": 0.04285714285714286,
+   "missing_rate": 0.0
+  },
+  "past_delay": {
+   "name": "Credit history",
+   "finding_text": "the applicant had payment delays on past loans",
+   "threshold": "hist == A33",
+   "is_placebo": false,
+   "prevalence_train": 0.08166666666666667,
+   "corr_train": -0.03585752231437124,
+   "emp_s1": 0.06666666666666667,
+   "emp_s0": 0.0880952380952381,
+   "missing_rate": 0.0
+  },
+  "critical_acct": {
+   "name": "Other existing credits",
+   "finding_text": "the applicant has a critical account or existing credits at other banks",
+   "threshold": "hist == A34",
+   "is_placebo": false,
+   "prevalence_train": 0.28833333333333333,
+   "corr_train": -0.19991837389636472,
+   "emp_s1": 0.15,
+   "emp_s0": 0.3476190476190476,
+   "missing_rate": 0.0
+  },
+  "low_savings": {
+   "name": "Savings",
+   "finding_text": "the applicant has less than 100 DM in savings",
+   "threshold": "savings == A61",
+   "is_placebo": false,
+   "prevalence_train": 0.6016666666666667,
+   "corr_train": 0.13892468084474527,
+   "emp_s1": 0.7055555555555556,
+   "emp_s0": 0.5571428571428572,
+   "missing_rate": 0.0
+  },
+  "short_employ": {
+   "name": "Employment",
+   "finding_text": "the applicant has been employed for less than one year or is unemployed",
+   "threshold": "employ in {A71, A72}",
+   "is_placebo": false,
+   "prevalence_train": 0.245,
+   "corr_train": 0.10908682320817124,
+   "emp_s1": 0.31666666666666665,
+   "emp_s0": 0.21428571428571427,
+   "missing_rate": 0.0
+  },
+  "high_burden": {
+   "name": "Instalment burden",
+   "finding_text": "the instalment would fall in the highest burden category relative to disposable income",
+   "threshold": "instrate == 4",
+   "is_placebo": false,
+   "prevalence_train": 0.4766666666666667,
+   "corr_train": 0.06699314085189528,
+   "emp_s1": 0.5277777777777778,
+   "emp_s0": 0.45476190476190476,
+   "missing_rate": 0.0
+  },
+  "young": {
+   "name": "Applicant age",
+   "finding_text": "the applicant is under 25 years old",
+   "threshold": "age < 25",
+   "is_placebo": false,
+   "prevalence_train": 0.16666666666666666,
+   "corr_train": 0.0780720058358821,
+   "emp_s1": 0.2111111111111111,
+   "emp_s0": 0.14761904761904762,
+   "missing_rate": 0.0
+  },
+  "renter": {
+   "name": "Housing",
+   "finding_text": "the applicant rents their home",
+   "threshold": "housing == A151",
+   "is_placebo": false,
+   "prevalence_train": 0.18166666666666667,
+   "corr_train": 0.14432042144196264,
+   "emp_s1": 0.26666666666666666,
+   "emp_s0": 0.14523809523809525,
+   "missing_rate": 0.0
+  },
+  "no_property": {
+   "name": "Property",
+   "finding_text": "the applicant owns no real estate, savings plan, life insurance or car",
+   "threshold": "property == A124",
+   "is_placebo": false,
+   "prevalence_train": 0.16,
+   "corr_train": 0.1607142857142854,
+   "emp_s1": 0.25,
+   "emp_s0": 0.12142857142857143,
+   "missing_rate": 0.0
+  },
+  "other_plans": {
+   "name": "Other instalment plans",
+   "finding_text": "the applicant is paying off other instalment plans with banks or stores",
+   "threshold": "otherplans in {A141, A142}",
+   "is_placebo": false,
+   "prevalence_train": 0.18833333333333332,
+   "corr_train": 0.075347989600125,
+   "emp_s1": 0.23333333333333334,
+   "emp_s0": 0.16904761904761906,
+   "missing_rate": 0.0
+  },
+  "purpose_newcar": {
+   "name": "Loan purpose",
+   "finding_text": "the loan is for buying a new car",
+   "threshold": "purpose == A40",
+   "is_placebo": false,
+   "prevalence_train": 0.23,
+   "corr_train": 0.1434623398027908,
+   "emp_s1": 0.32222222222222224,
+   "emp_s0": 0.19047619047619047,
+   "missing_rate": 0.0
+  },
+  "long_residence": {
+   "name": "Residence duration",
+   "finding_text": "the applicant has lived at the current address for four years or more",
+   "threshold": "residence == 4",
+   "is_placebo": true,
+   "prevalence_train": 0.415,
+   "corr_train": 0.0022144117416259892,
+   "emp_s1": 0.4166666666666667,
+   "emp_s0": 0.4142857142857143,
+   "missing_rate": 0.0
+  },
+  "skilled_job": {
+   "name": "Occupation",
+   "finding_text": "the applicant works as a skilled employee or official",
+   "threshold": "job == A173",
+   "is_placebo": true,
+   "prevalence_train": 0.63,
+   "corr_train": -0.0030131999865158875,
+   "emp_s1": 0.6277777777777778,
+   "emp_s0": 0.6309523809523809,
+   "missing_rate": 0.0
+  }
+ },
+ "placebo_pool": {
+  "long_residence": {
+   "name": "Residence duration",
+   "finding_text": "the applicant has lived at the current address for four years or more",
+   "threshold": "residence == 4",
+   "prevalence_train": 0.415,
+   "corr_train": 0.0022144117416259892,
+   "emp_s1": 0.4166666666666667,
+   "emp_s0": 0.4142857142857143,
+   "missing_rate": 0.0
+  },
+  "dependents": {
+   "name": "Dependents",
+   "finding_text": "the applicant supports two or more dependents",
+   "threshold": "liable >= 2",
+   "prevalence_train": 0.15666666666666668,
+   "corr_train": 0.018010413028966325,
+   "emp_s1": 0.16666666666666666,
+   "emp_s0": 0.1523809523809524,
+   "missing_rate": 0.0
+  },
+  "skilled_job": {
+   "name": "Occupation",
+   "finding_text": "the applicant works as a skilled employee or official",
+   "threshold": "job == A173",
+   "prevalence_train": 0.63,
+   "corr_train": -0.0030131999865158875,
+   "emp_s1": 0.6277777777777778,
+   "emp_s0": 0.6309523809523809,
+   "missing_rate": 0.0
+  },
+  "phone": {
+   "name": "Telephone",
+   "finding_text": "the applicant has a telephone registered in their name",
+   "threshold": "phone == A192",
+   "prevalence_train": 0.4083333333333333,
+   "corr_train": -0.018498356401559893,
+   "emp_s1": 0.39444444444444443,
+   "emp_s0": 0.4142857142857143,
+   "missing_rate": 0.0
+  },
+  "multi_credits": {
+   "name": "Existing credits at this bank",
+   "finding_text": "the applicant already has two or more credits at this bank",
+   "threshold": "ncredits >= 2",
+   "prevalence_train": 0.37166666666666665,
+   "corr_train": -0.08203397271729196,
+   "emp_s1": 0.3111111111111111,
+   "emp_s0": 0.3976190476190476,
+   "missing_rate": 0.0
+  }
+ },
+ "base_rate_train": 0.3,
+ "base_rate_all": 0.3,
+ "n_split": {
+  "train": 600,
+  "cal": 200,
+  "test": 200
+ },
+ "placebos": [
+  "long_residence",
+  "skilled_job"
+ ]
+}

@@ -1,0 +1,223 @@
+{
+ "dataset": "taiwan",
+ "n": 30000,
+ "split_seed": 350,
+ "findings": {
+  "late2_latest": {
+   "name": "Latest repayment status",
+   "finding_text": "the client's most recent bill is two or more months overdue",
+   "threshold": "X6 (PAY_0) >= 2",
+   "is_placebo": false,
+   "prevalence_train": 0.10561111111111111,
+   "corr_train": 0.39345549434682203,
+   "emp_s1": 0.3324962330487192,
+   "emp_s0": 0.04116136396062206,
+   "missing_rate": 0.0
+  },
+  "late_prev": {
+   "name": "Previous month's repayment status",
+   "finding_text": "the client was at least one month late on the previous month's bill",
+   "threshold": "X7 (PAY_2) >= 1",
+   "is_placebo": false,
+   "prevalence_train": 0.1495,
+   "corr_train": 0.34071136336411334,
+   "emp_s1": 0.3774485183324962,
+   "emp_s0": 0.08474818091025824,
+   "missing_rate": 0.0
+  },
+  "late3_of6": {
+   "name": "Six-month delinquency count",
+   "finding_text": "the client was late on three or more of the last six monthly bills",
+   "threshold": "#{X6..X11 >= 1} >= 3",
+   "is_placebo": false,
+   "prevalence_train": 0.1265,
+   "corr_train": 0.35041858604761367,
+   "emp_s1": 0.3450527373179307,
+   "emp_s0": 0.06441717791411043,
+   "missing_rate": 0.0
+  },
+  "paid_full": {
+   "name": "Latest bill payment",
+   "finding_text": "the client paid the most recent bill in full and on time",
+   "threshold": "X6 (PAY_0) == -1",
+   "is_placebo": false,
+   "prevalence_train": 0.18611111111111112,
+   "corr_train": -0.0650303966717517,
+   "emp_s1": 0.13862380713209443,
+   "emp_s0": 0.19960051362533884,
+   "missing_rate": 0.0
+  },
+  "low_limit": {
+   "name": "Credit limit",
+   "finding_text": "the client's credit limit is NT$50,000 or less",
+   "threshold": "X1 <= 50000",
+   "is_placebo": false,
+   "prevalence_train": 0.2548888888888889,
+   "corr_train": 0.13453232622008102,
+   "emp_s1": 0.3648920140632848,
+   "emp_s0": 0.2236410329576259,
+   "missing_rate": 0.0
+  },
+  "high_util": {
+   "name": "Credit utilization",
+   "finding_text": "the current balance is 80% or more of the credit limit",
+   "threshold": "X12 / X1 >= 0.8",
+   "is_placebo": false,
+   "prevalence_train": 0.2685,
+   "corr_train": 0.06397652558316634,
+   "emp_s1": 0.32169763937719736,
+   "emp_s0": 0.25338850049935796,
+   "missing_rate": 0.0
+  },
+  "tiny_payment": {
+   "name": "Size of last payment",
+   "finding_text": "the client's last payment covered less than 5% of the balance due",
+   "threshold": "X13 > 0 and X18 < 0.05 * X13",
+   "is_placebo": false,
+   "prevalence_train": 0.3267777777777778,
+   "corr_train": 0.08925389746991975,
+   "emp_s1": 0.40532395781014563,
+   "emp_s0": 0.3044656869738907,
+   "missing_rate": 0.0
+  },
+  "no_payment": {
+   "name": "Recent payment activity",
+   "finding_text": "the client made no payment in either of the last two months while carrying a balance",
+   "threshold": "X18 == 0 and X19 == 0 and X12 > 0",
+   "is_placebo": false,
+   "prevalence_train": 0.04011111111111111,
+   "corr_train": 0.07113025372079723,
+   "emp_s1": 0.06629834254143646,
+   "emp_s0": 0.03267227849907262,
+   "missing_rate": 0.0
+  },
+  "bal_growth": {
+   "name": "Balance trend",
+   "finding_text": "the outstanding balance grew by more than 20% over the last two months",
+   "threshold": "X12 > 1.2 * X14 and X12 > 0",
+   "is_placebo": false,
+   "prevalence_train": 0.28344444444444444,
+   "corr_train": -0.1086034520272613,
+   "emp_s1": 0.19161225514816674,
+   "emp_s0": 0.30953060350977313,
+   "missing_rate": 0.0
+  },
+  "young": {
+   "name": "Client age",
+   "finding_text": "the client is under 25 years old",
+   "threshold": "X5 < 25",
+   "is_placebo": false,
+   "prevalence_train": 0.09183333333333334,
+   "corr_train": 0.035835491418720715,
+   "emp_s1": 0.11125062782521346,
+   "emp_s0": 0.08631759166785562,
+   "missing_rate": 0.0
+  },
+  "edu_hs": {
+   "name": "Education",
+   "finding_text": "the client's highest education level is high school",
+   "threshold": "X3 == 3",
+   "is_placebo": false,
+   "prevalence_train": 0.16416666666666666,
+   "corr_train": 0.021422652976719938,
+   "emp_s1": 0.1790557508789553,
+   "emp_s0": 0.1599372235696961,
+   "missing_rate": 0.0
+  },
+  "male": {
+   "name": "Sex",
+   "finding_text": "the client is male",
+   "threshold": "X2 == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.39355555555555555,
+   "corr_train": 0.0407841120132136,
+   "emp_s1": 0.430939226519337,
+   "emp_s0": 0.38293622485375944,
+   "missing_rate": 0.0
+  },
+  "single": {
+   "name": "Marital status",
+   "finding_text": "the client is single",
+   "threshold": "X4 == 2",
+   "is_placebo": false,
+   "prevalence_train": 0.5325555555555556,
+   "corr_train": -0.028069904482169224,
+   "emp_s1": 0.5062782521346058,
+   "emp_s0": 0.540019974318733,
+   "missing_rate": 0.0
+  },
+  "old_bill": {
+   "name": "Statement six months ago",
+   "finding_text": "the bill six months ago exceeded NT$20,000",
+   "threshold": "X17 > 20000",
+   "is_placebo": true,
+   "prevalence_train": 0.44705555555555554,
+   "corr_train": 0.009913453674405458,
+   "emp_s1": 0.4563033651431441,
+   "emp_s0": 0.4444285918105293,
+   "missing_rate": 0.0
+  }
+ },
+ "placebo_pool": {
+  "age_30s": {
+   "name": "Age bracket",
+   "finding_text": "the client is in their thirties",
+   "threshold": "30 <= X5 <= 39",
+   "prevalence_train": 0.37122222222222223,
+   "corr_train": -0.03025455740340131,
+   "emp_s1": 0.3437970868910095,
+   "emp_s0": 0.379012697959766,
+   "missing_rate": 0.0
+  },
+  "univ": {
+   "name": "University degree",
+   "finding_text": "the client holds a university degree (but not a graduate degree)",
+   "threshold": "X3 == 2",
+   "prevalence_train": 0.4676111111111111,
+   "corr_train": 0.0415723176040014,
+   "emp_s1": 0.50652938221999,
+   "emp_s0": 0.45655585675559995,
+   "missing_rate": 0.0
+  },
+  "old_bill": {
+   "name": "Statement six months ago",
+   "finding_text": "the bill six months ago exceeded NT$20,000",
+   "threshold": "X17 > 20000",
+   "prevalence_train": 0.44705555555555554,
+   "corr_train": 0.009913453674405458,
+   "emp_s1": 0.4563033651431441,
+   "emp_s0": 0.4444285918105293,
+   "missing_rate": 0.0
+  },
+  "mid_limit": {
+   "name": "Credit-limit band",
+   "finding_text": "the client's credit limit is between NT$100,000 and NT$200,000",
+   "threshold": "100000 <= X1 <= 200000",
+   "prevalence_train": 0.2986111111111111,
+   "corr_train": -0.030729136576340275,
+   "emp_s1": 0.2722250125565043,
+   "emp_s0": 0.30610643458410614,
+   "missing_rate": 0.0
+  },
+  "age_40plus": {
+   "name": "Age 40 or older",
+   "finding_text": "the client is 40 years old or older",
+   "threshold": "X5 >= 40",
+   "prevalence_train": 0.30333333333333334,
+   "corr_train": 0.02303862896928278,
+   "emp_s1": 0.32320441988950277,
+   "emp_s0": 0.2976886859751748,
+   "missing_rate": 0.0
+  }
+ },
+ "base_rate_train": 0.2212222222222222,
+ "base_rate_all": 0.2212,
+ "n_split": {
+  "train": 18000,
+  "cal": 6000,
+  "test": 6000
+ },
+ "placebos": [
+  "old_bill"
+ ]
+}

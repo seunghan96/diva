@@ -1,0 +1,72 @@
+[
+ {
+  "id": "finance-test-bin-base-01145-0",
+  "text": "You are an equity analyst at an investment fund. A company has just released its quarterly results. You must decide whether to BUY its shares now or PASS.\n\nPayoffs: if you buy and the stock outperforms, you gain 1 point; if you buy and it underperforms, you lose 8 points. Passing yields 0 points either way.\n\nBase rate: in 45% of comparable companies in this situation, the stock underperforms the market over the next quarter.\n\nAlready known:\n- Peer company results (already done): it did not find that the main competitors reported weak demand. If the stock underperforms the market over the next quarter, this check reports this finding in roughly 25 percent of cases; otherwise in 3 out of 20 cases.\n\nYou may run any of the following checks (each at most once) before deciding.\n(A) Inventory levels (costs 0.6 points): reports whether inventories grew much faster than sales. If the stock underperforms the market over the next quarter, it reports this 75% of the time; otherwise about 35% of the time.\n(B) Share buyback activity (costs 0.8 points): reports whether the company paused its share buyback program. If the stock underperforms the market over the next quarter, it reports this in roughly 55 percent of cases; otherwise about 50% of the time.\n(C) Customer concentration (costs 0.2 points): reports whether a single customer accounts for more than a quarter of revenue. If the stock underperforms the market over the next quarter, it reports this in 9 out of 20 cases; otherwise 35% of the time.\n(D) Forward guidance (costs 0.8 points): reports whether management cut its forward guidance. If the stock underperforms the market over the next quarter, it reports this 80% of the time; otherwise 80% of the time.\n(E) Cash flow versus earnings (costs 0.4 points): reports whether operating cash flow fell well short of reported earnings. If the stock underperforms the market over the next quarter, it reports this in 15 out of 20 cases; otherwise in 9 out of 20 cases.\n(F) Short interest (costs 0.4 points): reports whether short interest rose sharply over the last month. If the stock underperforms the market over the next quarter, it reports this in roughly 80 percent of cases; otherwise 5% of the time.\n(S) Stop and decide now (BUY or PASS).",
+  "direct": "F",
+  "direct_name": "Short interest",
+  "diva": "S",
+  "diva_name": "Stop and decide",
+  "voi": {
+   "A": 0.0,
+   "B": 0.0,
+   "C": 0.0,
+   "D": 0.0,
+   "E": 0.0,
+   "F": 0.0
+  },
+  "eig": {
+   "A": 0.11650785199085101,
+   "B": 0.0017610273390498143,
+   "C": 0.0073498979623143335,
+   "D": 0.0,
+   "E": 0.06668662438923756,
+   "F": 0.4773124936516717
+  },
+  "net": {
+   "A": -0.6,
+   "B": -0.8,
+   "C": -0.2,
+   "D": -0.8,
+   "E": -0.4,
+   "F": -0.4
+  },
+  "posterior": 0.4192546583850932,
+  "g": 1,
+  "l": 8
+ },
+ {
+  "id": "finance-test-bin-base-01273-0",
+  "text": "You are an equity analyst at an investment fund. A company has just released its quarterly results. You must decide whether to BUY its shares now or PASS.\n\nPayoffs: if you buy and the stock outperforms, you gain 1 point; if you buy and it underperforms, you lose 8 points. Passing yields 0 points either way.\n\nBase rate: in 55% of comparable companies in this situation, the stock underperforms the market over the next quarter.\n\nAlready known: nothing beyond the base rate.\n\nYou may run any of the following checks (each at most once) before deciding.\n(A) Auditor report (costs 0.4 points): reports whether the auditor flagged a material weakness in internal controls. If the stock underperforms the market over the next quarter, it reports this about 55% of the time; otherwise about 30% of the time.\n(B) Inventory levels (costs 0.3 points): reports whether inventories grew much faster than sales. If the stock underperforms the market over the next quarter, it reports this in 6 out of 10 cases; otherwise in 1 out of 10 cases.\n(C) Executive turnover (costs 0.3 points): reports whether the chief financial officer resigned unexpectedly. If the stock underperforms the market over the next quarter, it reports this about 25% of the time; otherwise in roughly 10 percent of cases.\n(D) Cash flow versus earnings (costs 0.2 points): reports whether operating cash flow fell well short of reported earnings. If the stock underperforms the market over the next quarter, it reports this in 4 out of 10 cases; otherwise about 25% of the time.\n(E) Gross margin trend (costs 0.2 points): reports whether gross margin declined versus last year. If the stock underperforms the market over the next quarter, it reports this 20% of the time; otherwise in 2 out of 10 cases.\n(F) Forward guidance (costs 0.4 points): reports whether management cut its forward guidance. If the stock underperforms the market over the next quarter, it reports this 80% of the time; otherwise 5% of the time.\n(S) Stop and decide now (BUY or PASS).",
+  "direct": "F",
+  "direct_name": "Forward guidance",
+  "diva": "S",
+  "diva_name": "Stop and decide",
+  "voi": {
+   "A": 0.0,
+   "B": 0.0,
+   "C": 0.0,
+   "D": 0.0,
+   "E": 0.0,
+   "F": 0.0
+  },
+  "eig": {
+   "A": 0.04609255394139122,
+   "B": 0.20936315885972057,
+   "C": 0.028264692366739452,
+   "D": 0.01836226261245938,
+   "E": 0.0,
+   "F": 0.46999952474136597
+  },
+  "net": {
+   "A": -0.4,
+   "B": -0.3,
+   "C": -0.3,
+   "D": -0.2,
+   "E": -0.2,
+   "F": -0.4
+  },
+  "posterior": 0.55,
+  "g": 1,
+  "l": 8
+ }
+]

@@ -1,0 +1,86 @@
+{
+ "dev": {
+  "n_natural": 500,
+  "n_unique_records": 500,
+  "strata_natural": {
+   "other": 330,
+   "S3": 58,
+   "S1": 56,
+   "S2": 56
+  },
+  "n_strat": 250,
+  "strata_strat": {
+   "S2": 62,
+   "S1": 88,
+   "other": 38,
+   "S3": 62
+  },
+  "strata_pool_available": {
+   "S1": 508,
+   "S2": 476,
+   "S3": 578,
+   "other": 2938
+  },
+  "diagnostics": {
+   "frac_gold_stop": 0.83,
+   "frac_dp_stop": 0.744,
+   "myopic_dp_disagree": 0.096,
+   "nonmyopic_acquire": 0.086,
+   "frac_with_placebo": 0.514,
+   "placebo_voi_mean": 0.00038140345908480543,
+   "placebo_voi_frac_pos": 0.038910505836575876,
+   "placebo_voi_rel_to_max_mean": 0.003650398792859534,
+   "placebo_eig_mean": 0.00020768493761038438,
+   "nonplacebo_voi_mean": 0.01852843073997401,
+   "nonplacebo_voi_frac_pos": 0.2169157856361648,
+   "nonplacebo_eig_mean": 0.015261738457987813,
+   "coherence_gap_abs_mean": 0.007268878694780103,
+   "coherence_gap_abs_p95": 0.017764007527607328,
+   "posterior_mean": 0.1407711514918274,
+   "y_mean": 0.122,
+   "dp_gain_over_stop_mean": 0.021053324747159548
+  }
+ },
+ "test": {
+  "n_natural": 2000,
+  "n_unique_records": 2000,
+  "strata_natural": {
+   "other": 1305,
+   "S3": 243,
+   "S1": 219,
+   "S2": 233
+  },
+  "n_strat": 1000,
+  "strata_strat": {
+   "S2": 250,
+   "S3": 250,
+   "S1": 350,
+   "other": 150
+  },
+  "strata_pool_available": {
+   "S1": 2038,
+   "S2": 1855,
+   "S3": 2303,
+   "other": 11804
+  },
+  "diagnostics": {
+   "frac_gold_stop": 0.8355,
+   "frac_dp_stop": 0.764,
+   "myopic_dp_disagree": 0.0775,
+   "nonmyopic_acquire": 0.0715,
+   "frac_with_placebo": 0.4995,
+   "placebo_voi_mean": 0.00017041356356359681,
+   "placebo_voi_frac_pos": 0.03403403403403404,
+   "placebo_voi_rel_to_max_mean": 0.002488578712737591,
+   "placebo_eig_mean": 0.0002349509012365244,
+   "nonplacebo_voi_mean": 0.019063071670834097,
+   "nonplacebo_voi_frac_pos": 0.23361512589764566,
+   "nonplacebo_eig_mean": 0.015344198534166633,
+   "coherence_gap_abs_mean": 0.0073692164977134066,
+   "coherence_gap_abs_p95": 0.02003395673442169,
+   "posterior_mean": 0.14072525947562803,
+   "y_mean": 0.1425,
+   "dp_gain_over_stop_mean": 0.02211060557666785
+  }
+ }
+}

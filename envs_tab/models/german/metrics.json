@@ -1,0 +1,215 @@
+{
+ "dataset": "german",
+ "features": [
+  "chk_negative",
+  "no_checking",
+  "long_term",
+  "large_amount",
+  "past_delay",
+  "critical_acct",
+  "low_savings",
+  "short_employ",
+  "high_burden",
+  "young",
+  "renter",
+  "no_property",
+  "other_plans",
+  "purpose_newcar",
+  "long_residence",
+  "skilled_job"
+ ],
+ "K_train_replicates": 60,
+ "K_cal_replicates": 30,
+ "y_best_iter": 271,
+ "y_full": {
+  "auc": 0.7776190476190477,
+  "brier": 0.16796246202287482,
+  "ece": 0.05363664305764041,
+  "brier_baserate": 0.20999999999999996
+ },
+ "y_masked_all": {
+  "auc": 0.6936660714285714,
+  "brier": 0.18921018573252835,
+  "ece": 0.016259290079079884
+ },
+ "y_masked_by_nobs": {
+  "0-0": {
+   "n": 123,
+   "auc": null,
+   "brier": 0.2232538445703276,
+   "ece": 0.032118878375580695
+  },
+  "1-2": {
+   "n": 255,
+   "auc": 0.5237430167597765,
+   "brier": 0.20843131341143983,
+   "ece": 0.0439425155408519
+  },
+  "3-5": {
+   "n": 348,
+   "auc": 0.600525732123054,
+   "brier": 0.19772854966831568,
+   "ece": 0.040107032296463375
+  },
+  "6-8": {
+   "n": 336,
+   "auc": 0.7331316312997347,
+   "brier": 0.19015641930666494,
+   "ece": 0.08281162204365859
+  },
+  "9-99": {
+   "n": 938,
+   "auc": 0.7497405293201869,
+   "brier": 0.17602139817843923,
+   "ece": 0.022466763082376908
+  }
+ },
+ "y_calibration_curve": [
+  {
+   "bin": "0.0-0.1",
+   "n": 163,
+   "mean_pred": 0.07818943563729591,
+   "obs_rate": 0.05521472392638037
+  },
+  {
+   "bin": "0.1-0.2",
+   "n": 411,
+   "mean_pred": 0.15065804811413733,
+   "obs_rate": 0.1630170316301703
+  },
+  {
+   "bin": "0.2-0.3",
+   "n": 527,
+   "mean_pred": 0.25419742722968686,
+   "obs_rate": 0.27703984819734345
+  },
+  {
+   "bin": "0.3-0.4",
+   "n": 486,
+   "mean_pred": 0.3324486997677747,
+   "obs_rate": 0.33539094650205764
+  },
+  {
+   "bin": "0.4-0.5",
+   "n": 207,
+   "mean_pred": 0.4452873526384386,
+   "obs_rate": 0.46859903381642515
+  },
+  {
+   "bin": "0.5-0.6",
+   "n": 135,
+   "mean_pred": 0.5458373433679135,
+   "obs_rate": 0.5481481481481482
+  },
+  {
+   "bin": "0.6-0.7",
+   "n": 52,
+   "mean_pred": 0.6411980475749014,
+   "obs_rate": 0.5576923076923077
+  },
+  {
+   "bin": "0.7-0.8",
+   "n": 19,
+   "mean_pred": 0.7501843664050175,
+   "obs_rate": 0.7894736842105263
+  }
+ ],
+ "f_models": {
+  "chk_negative": {
+   "auc_masked": 0.7295180336285458,
+   "brier_masked": 0.16841799796874007,
+   "ece_masked": 0.017147699526560135,
+   "best_iter": 133
+  },
+  "no_checking": {
+   "auc_masked": 0.7260139006791172,
+   "brier_masked": 0.20043703687156217,
+   "ece_masked": 0.034380320625348786,
+   "best_iter": 112
+  },
+  "long_term": {
+   "auc_masked": 0.6392052259118126,
+   "brier_masked": 0.12852533773626457,
+   "ece_masked": 0.030696974663240853,
+   "best_iter": 175
+  },
+  "large_amount": {
+   "auc_masked": 0.6967292429792431,
+   "brier_masked": 0.07637660036887978,
+   "ece_masked": 0.027635588749047067,
+   "best_iter": 80
+  },
+  "past_delay": {
+   "auc_masked": 0.6141487097632349,
+   "brier_masked": 0.09318044874049289,
+   "ece_masked": 0.02506224357392658,
+   "best_iter": 122
+  },
+  "critical_acct": {
+   "auc_masked": 0.6680658096473641,
+   "brier_masked": 0.19863439255343052,
+   "ece_masked": 0.04031621362039774,
+   "best_iter": 80
+  },
+  "low_savings": {
+   "auc_masked": 0.5963626498553122,
+   "brier_masked": 0.23412023716238695,
+   "ece_masked": 0.039307182293126214,
+   "best_iter": 258
+  },
+  "short_employ": {
+   "auc_masked": 0.6590566724941724,
+   "brier_masked": 0.16460182827295097,
+   "ece_masked": 0.044794724994102864,
+   "best_iter": 64
+  },
+  "high_burden": {
+   "auc_masked": 0.5535989395758304,
+   "brier_masked": 0.24534254819329296,
+   "ece_masked": 0.03418437782133957,
+   "best_iter": 228
+  },
+  "young": {
+   "auc_masked": 0.6602497789566755,
+   "brier_masked": 0.11009574866239086,
+   "ece_masked": 0.0255708327269957,
+   "best_iter": 325
+  },
+  "renter": {
+   "auc_masked": 0.6163642026578073,
+   "brier_masked": 0.11644004379572792,
+   "ece_masked": 0.03996498077390107,
+   "best_iter": 66
+  },
+  "no_property": {
+   "auc_masked": 0.6909862745098039,
+   "brier_masked": 0.12132084643241904,
+   "ece_masked": 0.02443513209414378,
+   "best_iter": 72
+  },
+  "other_plans": {
+   "auc_masked": 0.5733113612798104,
+   "brier_masked": 0.16928010981787447,
+   "ece_masked": 0.026491204151276843,
+   "best_iter": 2
+  },
+  "purpose_newcar": {
+   "auc_masked": 0.5356099486774576,
+   "brier_masked": 0.19015008481525036,
+   "ece_masked": 0.023570913159006845,
+   "best_iter": 78
+  },
+  "long_residence": {
+   "auc_masked": 0.6355031147714074,
+   "brier_masked": 0.22616365739590896,
+   "ece_masked": 0.03985224742869518,
+   "best_iter": 55
+  },
+  "skilled_job": {
+   "auc_masked": 0.5912832475332475,
+   "brier_masked": 0.230319550224703,
+   "ece_masked": 0.028943582158054426,
+   "best_iter": 13
+  }
+ }
+}

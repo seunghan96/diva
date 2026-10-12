@@ -1,0 +1,418 @@
+{
+ "binary/clinical_dev": {
+  "n": 2000,
+  "stratum": {
+   "S3": 540,
+   "S1": 760,
+   "S2": 540,
+   "other": 160
+  },
+  "family": {
+   "base": 1240,
+   "many_item": 320,
+   "payoff_pair": 200,
+   "cost_variant": 240
+  },
+  "gold_stop": 945,
+  "dp_stop": 665,
+  "myopic_dp_agree": 1607,
+  "has_voi0_eigpos_item": 1652,
+  "argmax_eig_not_argmax_voi": 1137,
+  "n_items_mean": 6.746
+ },
+ "binary/credit_dev": {
+  "n": 2000,
+  "stratum": {
+   "S2": 540,
+   "S1": 760,
+   "S3": 540,
+   "other": 160
+  },
+  "family": {
+   "payoff_pair": 200,
+   "base": 1240,
+   "many_item": 320,
+   "cost_variant": 240
+  },
+  "gold_stop": 944,
+  "dp_stop": 696,
+  "myopic_dp_agree": 1648,
+  "has_voi0_eigpos_item": 1667,
+  "argmax_eig_not_argmax_voi": 1091,
+  "n_items_mean": 6.751
+ },
+ "binary/finance_dev": {
+  "n": 2000,
+  "stratum": {
+   "S2": 540,
+   "S3": 540,
+   "other": 160,
+   "S1": 760
+  },
+  "family": {
+   "payoff_pair": 200,
+   "many_item": 320,
+   "base": 1240,
+   "cost_variant": 240
+  },
+  "gold_stop": 963,
+  "dp_stop": 678,
+  "myopic_dp_agree": 1609,
+  "has_voi0_eigpos_item": 1703,
+  "argmax_eig_not_argmax_voi": 1117,
+  "n_items_mean": 6.74
+ },
+ "binary/legal_dev": {
+  "n": 2000,
+  "stratum": {
+   "S2": 540,
+   "S3": 540,
+   "S1": 760,
+   "other": 160
+  },
+  "family": {
+   "many_item": 320,
+   "base": 1240,
+   "payoff_pair": 200,
+   "cost_variant": 240
+  },
+  "gold_stop": 947,
+  "dp_stop": 686,
+  "myopic_dp_agree": 1625,
+  "has_voi0_eigpos_item": 1667,
+  "argmax_eig_not_argmax_voi": 1118,
+  "n_items_mean": 6.736
+ },
+ "binary/clinical_test": {
+  "n": 3000,
+  "stratum": {
+   "S1": 1140,
+   "S3": 810,
+   "S2": 810,
+   "other": 240
+  },
+  "family": {
+   "base": 1860,
+   "payoff_pair": 300,
+   "cost_variant": 360,
+   "many_item": 480
+  },
+  "gold_stop": 1379,
+  "dp_stop": 1027,
+  "myopic_dp_agree": 2465,
+  "has_voi0_eigpos_item": 2510,
+  "argmax_eig_not_argmax_voi": 1646,
+  "n_items_mean": 6.751333333333333
+ },
+ "binary/credit_test": {
+  "n": 3000,
+  "stratum": {
+   "S3": 810,
+   "S1": 1140,
+   "S2": 810,
+   "other": 240
+  },
+  "family": {
+   "many_item": 480,
+   "base": 1860,
+   "payoff_pair": 300,
+   "cost_variant": 360
+  },
+  "gold_stop": 1421,
+  "dp_stop": 1009,
+  "myopic_dp_agree": 2424,
+  "has_voi0_eigpos_item": 2517,
+  "argmax_eig_not_argmax_voi": 1694,
+  "n_items_mean": 6.746666666666667
+ },
+ "binary/finance_test": {
+  "n": 3000,
+  "stratum": {
+   "S1": 1140,
+   "S3": 810,
+   "S2": 810,
+   "other": 240
+  },
+  "family": {
+   "base": 1860,
+   "many_item": 480,
+   "payoff_pair": 300,
+   "cost_variant": 360
+  },
+  "gold_stop": 1389,
+  "dp_stop": 1020,
+  "myopic_dp_agree": 2457,
+  "has_voi0_eigpos_item": 2513,
+  "argmax_eig_not_argmax_voi": 1667,
+  "n_items_mean": 6.746
+ },
+ "binary/legal_test": {
+  "n": 3000,
+  "stratum": {
+   "S2": 810,
+   "S1": 1140,
+   "S3": 810,
+   "other": 240
+  },
+  "family": {
+   "base": 1860,
+   "many_item": 480,
+   "payoff_pair": 300,
+   "cost_variant": 360
+  },
+  "gold_stop": 1404,
+  "dp_stop": 1001,
+  "myopic_dp_agree": 2416,
+  "has_voi0_eigpos_item": 2469,
+  "argmax_eig_not_argmax_voi": 1683,
+  "n_items_mean": 6.739333333333334
+ },
+ "ms/clinical_dev": {
+  "n": 2000,
+  "stratum": {
+   "S2": 641,
+   "S3": 586,
+   "other": 201,
+   "S1": 572
+  },
+  "family": {
+   "placebo_heavy": 120,
+   "flip": 260,
+   "base": 300,
+   "trap": 340,
+   "many_item": 240,
+   "context_pair": 300,
+   "cost_variant": 180,
+   "sufficient": 260
+  },
+  "gold_stop": 714,
+  "dp_stop": 641,
+  "myopic_dp_agree": 1762,
+  "has_voi0_eigpos_item": 1821,
+  "argmax_eig_not_argmax_voi": 1210,
+  "n_items_mean": 6.5805,
+  "qual_robust": 966,
+  "context": {
+   "fluoroquinolone": 657,
+   "remote": 672,
+   "amoxicillin": 671
+  }
+ },
+ "ms/credit_dev": {
+  "n": 2000,
+  "stratum": {
+   "S3": 441,
+   "S1": 503,
+   "other": 210,
+   "S2": 846
+  },
+  "family": {
+   "flip": 260,
+   "trap": 340,
+   "context_pair": 300,
+   "base": 300,
+   "many_item": 240,
+   "sufficient": 260,
+   "cost_variant": 180,
+   "placebo_heavy": 120
+  },
+  "gold_stop": 1046,
+  "dp_stop": 846,
+  "myopic_dp_agree": 1670,
+  "has_voi0_eigpos_item": 1866,
+  "argmax_eig_not_argmax_voi": 1326,
+  "n_items_mean": 6.7195,
+  "qual_robust": 1017,
+  "context": {
+   "unsecured": 911,
+   "secured": 667,
+   "guaranteed": 422
+  }
+ },
+ "ms/finance_dev": {
+  "n": 2000,
+  "stratum": {
+   "S2": 578,
+   "S3": 602,
+   "other": 153,
+   "S1": 667
+  },
+  "family": {
+   "sufficient": 260,
+   "flip": 260,
+   "base": 300,
+   "many_item": 240,
+   "context_pair": 300,
+   "trap": 340,
+   "placebo_heavy": 120,
+   "cost_variant": 180
+  },
+  "gold_stop": 692,
+  "dp_stop": 579,
+  "myopic_dp_agree": 1753,
+  "has_voi0_eigpos_item": 1968,
+  "argmax_eig_not_argmax_voi": 1220,
+  "n_items_mean": 6.8095,
+  "qual_robust": 888,
+  "context": {
+   "3m": 675,
+   "1d": 608,
+   "12m": 717
+  }
+ },
+ "ms/legal_dev": {
+  "n": 2000,
+  "stratum": {
+   "other": 215,
+   "S1": 687,
+   "S3": 525,
+   "S2": 573
+  },
+  "family": {
+   "context_pair": 300,
+   "flip": 260,
+   "base": 300,
+   "trap": 340,
+   "sufficient": 260,
+   "placebo_heavy": 120,
+   "many_item": 240,
+   "cost_variant": 180
+  },
+  "gold_stop": 653,
+  "dp_stop": 574,
+  "myopic_dp_agree": 1770,
+  "has_voi0_eigpos_item": 1834,
+  "argmax_eig_not_argmax_voi": 1303,
+  "n_items_mean": 6.3295,
+  "qual_robust": 754,
+  "context": {
+   "uncapped": 641,
+   "capped": 712,
+   "bench": 647
+  }
+ },
+ "ms/clinical_test": {
+  "n": 3000,
+  "stratum": {
+   "S2": 960,
+   "S1": 841,
+   "S3": 886,
+   "other": 313
+  },
+  "family": {
+   "placebo_heavy": 180,
+   "base": 450,
+   "trap": 510,
+   "context_pair": 450,
+   "sufficient": 390,
+   "many_item": 360,
+   "cost_variant": 270,
+   "flip": 390
+  },
+  "gold_stop": 1104,
+  "dp_stop": 960,
+  "myopic_dp_agree": 2628,
+  "has_voi0_eigpos_item": 2740,
+  "argmax_eig_not_argmax_voi": 1811,
+  "n_items_mean": 6.554333333333333,
+  "qual_robust": 1438,
+  "context": {
+   "remote": 1019,
+   "amoxicillin": 1019,
+   "fluoroquinolone": 962
+  }
+ },
+ "ms/credit_test": {
+  "n": 3000,
+  "stratum": {
+   "S2": 1376,
+   "S3": 623,
+   "other": 291,
+   "S1": 710
+  },
+  "family": {
+   "many_item": 360,
+   "base": 450,
+   "sufficient": 390,
+   "flip": 390,
+   "trap": 510,
+   "context_pair": 450,
+   "placebo_heavy": 180,
+   "cost_variant": 270
+  },
+  "gold_stop": 1672,
+  "dp_stop": 1376,
+  "myopic_dp_agree": 2513,
+  "has_voi0_eigpos_item": 2796,
+  "argmax_eig_not_argmax_voi": 2017,
+  "n_items_mean": 6.726666666666667,
+  "qual_robust": 1565,
+  "context": {
+   "guaranteed": 632,
+   "unsecured": 1276,
+   "secured": 1092
+  }
+ },
+ "ms/finance_test": {
+  "n": 3000,
+  "stratum": {
+   "S3": 884,
+   "S1": 979,
+   "S2": 873,
+   "other": 264
+  },
+  "family": {
+   "many_item": 360,
+   "flip": 390,
+   "base": 450,
+   "sufficient": 390,
+   "trap": 510,
+   "cost_variant": 270,
+   "placebo_heavy": 180,
+   "context_pair": 450
+  },
+  "gold_stop": 1064,
+  "dp_stop": 874,
+  "myopic_dp_agree": 2601,
+  "has_voi0_eigpos_item": 2939,
+  "argmax_eig_not_argmax_voi": 1830,
+  "n_items_mean": 6.770333333333333,
+  "qual_robust": 1357,
+  "context": {
+   "3m": 970,
+   "12m": 1055,
+   "1d": 975
+  }
+ },
+ "ms/legal_test": {
+  "n": 3000,
+  "stratum": {
+   "S1": 1013,
+   "S3": 788,
+   "S2": 924,
+   "other": 275
+  },
+  "family": {
+   "many_item": 360,
+   "base": 450,
+   "flip": 390,
+   "trap": 510,
+   "sufficient": 390,
+   "placebo_heavy": 180,
+   "context_pair": 450,
+   "cost_variant": 270
+  },
+  "gold_stop": 1052,
+  "dp_stop": 924,
+  "myopic_dp_agree": 2686,
+  "has_voi0_eigpos_item": 2733,
+  "argmax_eig_not_argmax_voi": 1927,
+  "n_items_mean": 6.3566666666666665,
+  "qual_robust": 1162,
+  "context": {
+   "uncapped": 949,
+   "bench": 984,
+   "capped": 1067
+  }
+ }
+}

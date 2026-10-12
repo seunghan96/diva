@@ -1,0 +1,86 @@
+{
+ "dev": {
+  "n_natural": 300,
+  "n_unique_records": 200,
+  "strata_natural": {
+   "S2": 33,
+   "S1": 32,
+   "other": 183,
+   "S3": 52
+  },
+  "n_strat": 150,
+  "strata_strat": {
+   "S3": 38,
+   "S1": 52,
+   "S2": 38,
+   "other": 22
+  },
+  "strata_pool_available": {
+   "S1": 345,
+   "S2": 326,
+   "S3": 447,
+   "other": 1582
+  },
+  "diagnostics": {
+   "frac_gold_stop": 0.7933333333333333,
+   "frac_dp_stop": 0.7366666666666667,
+   "myopic_dp_disagree": 0.056666666666666664,
+   "nonmyopic_acquire": 0.056666666666666664,
+   "frac_with_placebo": 0.5033333333333333,
+   "placebo_voi_mean": 0.0006125734938269848,
+   "placebo_voi_frac_pos": 0.019867549668874173,
+   "placebo_voi_rel_to_max_mean": 0.002343553198263867,
+   "placebo_eig_mean": 0.00023183884190143344,
+   "nonplacebo_voi_mean": 0.028870028380884476,
+   "nonplacebo_voi_frac_pos": 0.29896907216494845,
+   "nonplacebo_eig_mean": 0.012173361876554262,
+   "coherence_gap_abs_mean": 0.014477812616086716,
+   "coherence_gap_abs_p95": 0.034358958264957065,
+   "posterior_mean": 0.29699035070729585,
+   "y_mean": 0.30333333333333334,
+   "dp_gain_over_stop_mean": 0.03639618531336025
+  }
+ },
+ "test": {
+  "n_natural": 1000,
+  "n_unique_records": 200,
+  "strata_natural": {
+   "other": 600,
+   "S1": 128,
+   "S3": 172,
+   "S2": 100
+  },
+  "n_strat": 500,
+  "strata_strat": {
+   "S2": 125,
+   "S1": 175,
+   "S3": 125,
+   "other": 75
+  },
+  "strata_pool_available": {
+   "S1": 1128,
+   "S2": 1048,
+   "S3": 1547,
+   "other": 5277
+  },
+  "diagnostics": {
+   "frac_gold_stop": 0.764,
+   "frac_dp_stop": 0.69,
+   "myopic_dp_disagree": 0.079,
+   "nonmyopic_acquire": 0.074,
+   "frac_with_placebo": 0.483,
+   "placebo_voi_mean": 0.0002779897500743138,
+   "placebo_voi_frac_pos": 0.026915113871635612,
+   "placebo_voi_rel_to_max_mean": 0.0031990377537564185,
+   "placebo_eig_mean": 0.0001957124644284721,
+   "nonplacebo_voi_mean": 0.027604244908820314,
+   "nonplacebo_voi_frac_pos": 0.2921877832155157,
+   "nonplacebo_eig_mean": 0.011694296716669706,
+   "coherence_gap_abs_mean": 0.015221551265643741,
+   "coherence_gap_abs_p95": 0.03609216735194952,
+   "posterior_mean": 0.2955143327437761,
+   "y_mean": 0.3,
+   "dp_gain_over_stop_mean": 0.04247983963180536
+  }
+ }
+}

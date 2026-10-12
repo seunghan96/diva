@@ -1,0 +1,120 @@
+{
+ "vmodels": {
+  "rev_growth": {
+   "calib_logloss": 1.0485048202835712,
+   "calib_logloss_marginal": 1.0986200565571
+  },
+  "gm_change": {
+   "calib_logloss": 1.019122996467558,
+   "calib_logloss_marginal": 1.0986033615193067
+  },
+  "om_change": {
+   "calib_logloss": 0.969979741651607,
+   "calib_logloss_marginal": 1.0986015003609984
+  },
+  "eps_sue": {
+   "calib_logloss": 1.0122532815949286,
+   "calib_logloss_marginal": 1.0986245880334682
+  },
+  "analyst_surprise": {
+   "calib_logloss": 1.0684479038932633,
+   "calib_logloss_marginal": 1.0985210769294211
+  },
+  "fcf_margin": {
+   "calib_logloss": 0.9597284297131734,
+   "calib_logloss_marginal": 1.0986122886651095
+  },
+  "accruals": {
+   "calib_logloss": 1.015368147466171,
+   "calib_logloss_marginal": 1.0986122886651093
+  },
+  "lev_change": {
+   "calib_logloss": 1.0941401928067207,
+   "calib_logloss_marginal": 1.0986175032857435
+  },
+  "capex_growth": {
+   "calib_logloss": 1.0941294610458085,
+   "calib_logloss_marginal": 1.0986107142855974
+  },
+  "buyback_yield": {
+   "calib_logloss": 0.5750494491587718,
+   "calib_logloss_marginal": 0.6365218704250618
+  },
+  "rnd_intensity": {
+   "calib_logloss": 0.7948381863192031,
+   "calib_logloss_marginal": 1.0986327162693503
+  },
+  "mom60": {
+   "calib_logloss": 1.0899522977634646,
+   "calib_logloss_marginal": 1.0986069995900034
+  },
+  "rv_pre": {
+   "calib_logloss": 1.0282860576496333,
+   "calib_logloss_marginal": 1.0986326134584619
+  },
+  "size_dvol": {
+   "calib_logloss": 1.044522533369269,
+   "calib_logloss_marginal": 1.0985988225368086
+  }
+ },
+ "vol_20": {
+  "diag": {
+   "calib": {
+    "n": 1955,
+    "base_rate": 0.4680306905370844,
+    "auc_full": 0.68359552332913,
+    "auc_sector_only": 0.5821469104665826,
+    "logloss_full": 0.6398250695799033,
+    "logloss_sector_only": 0.6761567201899944,
+    "brier_full": 0.22408416089051192,
+    "ece_full": 0.011129113445424162
+   },
+   "dev": {
+    "n": 1964,
+    "base_rate": 0.5804480651731161,
+    "auc_full": 0.672100153295861,
+    "auc_sector_only": 0.580521312382899,
+    "logloss_full": 0.6713003518716473,
+    "logloss_sector_only": 0.6905799679098003,
+    "brier_full": 0.2384513740272223,
+    "ece_full": 0.12462170130949835
+   },
+   "test": {
+    "n": 3417,
+    "base_rate": 0.4890254609306409,
+    "auc_full": 0.6575126321049807,
+    "auc_sector_only": 0.5794040306200442,
+    "logloss_full": 0.6863667486117242,
+    "logloss_sector_only": 0.6813001356552217,
+    "brier_full": 0.24502138883697114,
+    "ece_full": 0.11762692417488307
+   }
+  },
+  "strata": {
+   "calib": {
+    "S3": 1161,
+    "other": 651,
+    "S2": 131,
+    "S1": 12
+   },
+   "dev": {
+    "S3": 1193,
+    "other": 645,
+    "S2": 111,
+    "S1": 15
+   },
+   "test": {
+    "S3": 2056,
+    "other": 1096,
+    "S2": 227,
+    "S1": 38
+   }
+  },
+  "gold_stop_rate": {
+   "calib": 0.4,
+   "dev": 0.3859470468431772,
+   "test": 0.3904009364940006
+  },
+  "coherence_abs_delta_logodds_mean": 0.02253099897192763
+ }
+}

@@ -1,0 +1,223 @@
+{
+ "dataset": "heart",
+ "n": 920,
+ "split_seed": 45,
+ "findings": {
+  "male": {
+   "name": "Sex",
+   "finding_text": "the patient is male",
+   "threshold": "sex == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.7971014492753623,
+   "corr_train": 0.26167578748918097,
+   "emp_s1": 0.8918032786885246,
+   "emp_s0": 0.680161943319838,
+   "missing_rate": 0.0
+  },
+  "age55": {
+   "name": "Age",
+   "finding_text": "the patient is 55 years or older",
+   "threshold": "age >= 55",
+   "is_placebo": false,
+   "prevalence_train": 0.5018115942028986,
+   "corr_train": 0.2765140511139708,
+   "emp_s1": 0.6262295081967213,
+   "emp_s0": 0.3481781376518219,
+   "missing_rate": 0.0
+  },
+  "asympt": {
+   "name": "Chest-pain type",
+   "finding_text": "the patient reports no chest pain at all (asymptomatic presentation)",
+   "threshold": "cp == 4",
+   "is_placebo": false,
+   "prevalence_train": 0.5144927536231884,
+   "corr_train": 0.5327346322796154,
+   "emp_s1": 0.7540983606557377,
+   "emp_s0": 0.21862348178137653,
+   "missing_rate": 0.0
+  },
+  "typical": {
+   "name": "Angina pattern",
+   "finding_text": "the chest pain is typical angina (exertional, relieved by rest)",
+   "threshold": "cp == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.06340579710144928,
+   "corr_train": -0.06486759965886413,
+   "emp_s1": 0.04918032786885246,
+   "emp_s0": 0.08097165991902834,
+   "missing_rate": 0.0
+  },
+  "high_bp": {
+   "name": "Resting blood pressure",
+   "finding_text": "the resting systolic blood pressure is 140 mm Hg or higher",
+   "threshold": "trestbps >= 140",
+   "is_placebo": false,
+   "prevalence_train": 0.3684210526315789,
+   "corr_train": 0.11529596026942476,
+   "emp_s1": 0.41935483870967744,
+   "emp_s0": 0.3076923076923077,
+   "missing_rate": 0.06521739130434782
+  },
+  "high_chol": {
+   "name": "Serum cholesterol",
+   "finding_text": "the serum cholesterol is 240 mg/dl or higher",
+   "threshold": "chol >= 240 (chol == 0 -> missing)",
+   "is_placebo": false,
+   "prevalence_train": 0.4883720930232558,
+   "corr_train": 0.03162090159536707,
+   "emp_s1": 0.5048543689320388,
+   "emp_s0": 0.4732142857142857,
+   "missing_rate": 0.21956521739130436
+  },
+  "high_fbs": {
+   "name": "Fasting blood sugar",
+   "finding_text": "the fasting blood sugar is above 120 mg/dl",
+   "threshold": "fbs == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.17706237424547283,
+   "corr_train": 0.10330332993618296,
+   "emp_s1": 0.21455938697318008,
+   "emp_s0": 0.13559322033898305,
+   "missing_rate": 0.09782608695652174
+  },
+  "abn_ecg": {
+   "name": "Resting ECG",
+   "finding_text": "the resting ECG is abnormal (ST-T wave abnormality or left-ventricular hypertrophy)",
+   "threshold": "restecg in {1, 2}",
+   "is_placebo": false,
+   "prevalence_train": 0.4029038112522686,
+   "corr_train": 0.07081136699076464,
+   "emp_s1": 0.4342105263157895,
+   "emp_s0": 0.3643724696356275,
+   "missing_rate": 0.002173913043478261
+  },
+  "low_maxhr": {
+   "name": "Exercise heart rate",
+   "finding_text": "the maximum heart rate reached on the exercise test is below 120 beats per minute",
+   "threshold": "thalach < 120",
+   "is_placebo": false,
+   "prevalence_train": 0.22972972972972974,
+   "corr_train": 0.2375165678693343,
+   "emp_s1": 0.3204225352112676,
+   "emp_s0": 0.11965811965811966,
+   "missing_rate": 0.059782608695652176
+  },
+  "exang": {
+   "name": "Exercise symptoms",
+   "finding_text": "exercise induces angina",
+   "threshold": "exang == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.37258687258687256,
+   "corr_train": 0.4427575296527121,
+   "emp_s1": 0.5669014084507042,
+   "emp_s0": 0.13675213675213677,
+   "missing_rate": 0.059782608695652176
+  },
+  "st_dep": {
+   "name": "Exercise ST depression",
+   "finding_text": "exercise causes ST-segment depression of 1 mm or more",
+   "threshold": "oldpeak >= 1",
+   "is_placebo": false,
+   "prevalence_train": 0.4296875,
+   "corr_train": 0.4017399843171847,
+   "emp_s1": 0.6107142857142858,
+   "emp_s0": 0.21120689655172414,
+   "missing_rate": 0.06739130434782609
+  },
+  "flat_slope": {
+   "name": "ST slope",
+   "finding_text": "the ST segment at peak exercise is flat or downsloping",
+   "threshold": "slope in {2, 3}",
+   "is_placebo": false,
+   "prevalence_train": 0.6446280991735537,
+   "corr_train": 0.3483847968096495,
+   "emp_s1": 0.7669491525423728,
+   "emp_s0": 0.41732283464566927,
+   "missing_rate": 0.3358695652173913
+  },
+  "vessels": {
+   "name": "Fluoroscopy",
+   "finding_text": "fluoroscopy shows calcification in one or more major coronary vessels",
+   "threshold": "ca >= 1",
+   "is_placebo": false,
+   "prevalence_train": 0.42328042328042326,
+   "corr_train": 0.3777460923381062,
+   "emp_s1": 0.6129032258064516,
+   "emp_s0": 0.23958333333333334,
+   "missing_rate": 0.6641304347826087
+  },
+  "rev_defect": {
+   "name": "Thallium scan",
+   "finding_text": "the thallium stress scan shows a reversible perfusion defect",
+   "threshold": "thal == 7",
+   "is_placebo": false,
+   "prevalence_train": 0.43346007604562736,
+   "corr_train": 0.4119426890483821,
+   "emp_s1": 0.609271523178808,
+   "emp_s0": 0.19642857142857142,
+   "missing_rate": 0.5282608695652173
+  },
+  "cath_firsthalf": {
+   "name": "Catheterization scheduling",
+   "finding_text": "the catheterization was booked for the first half of the calendar month",
+   "threshold": "cday <= 15",
+   "is_placebo": true,
+   "prevalence_train": 0.4568245125348189,
+   "corr_train": -0.04463676226380242,
+   "emp_s1": 0.4380952380952381,
+   "emp_s0": 0.48322147651006714,
+   "missing_rate": 0.3391304347826087,
+   "p_train": 0.39910723435384443,
+   "corr_all": -0.018047062493227344
+  }
+ },
+ "placebo_pool": {
+  "ekg_firsthalf": {
+   "name": "Exercise-test scheduling",
+   "finding_text": "the exercise ECG was recorded in the first half of the calendar month",
+   "threshold": "ekgday <= 15",
+   "prevalence_train": 0.463855421686747,
+   "corr_train": -0.03007990456696691,
+   "emp_s1": 0.4512820512820513,
+   "emp_s0": 0.48175182481751827,
+   "missing_rate": 0.38804347826086955,
+   "p_train": 0.5849708062702282,
+   "corr_all": -0.03394099032129628
+  },
+  "cath_firsthalf": {
+   "name": "Catheterization scheduling",
+   "finding_text": "the catheterization was booked for the first half of the calendar month",
+   "threshold": "cday <= 15",
+   "prevalence_train": 0.4568245125348189,
+   "corr_train": -0.04463676226380242,
+   "emp_s1": 0.4380952380952381,
+   "emp_s0": 0.48322147651006714,
+   "missing_rate": 0.3391304347826087,
+   "p_train": 0.39910723435384443,
+   "corr_all": -0.018047062493227344
+  },
+  "ekg_winter": {
+   "name": "Exercise-test season",
+   "finding_text": "the exercise ECG was recorded in the winter months (December to February)",
+   "threshold": "ekgmo in {12, 1, 2}",
+   "prevalence_train": 0.22289156626506024,
+   "corr_train": 0.03728282302856805,
+   "emp_s1": 0.2358974358974359,
+   "emp_s0": 0.20437956204379562,
+   "missing_rate": 0.3869565217391304,
+   "p_train": 0.4984068206255796,
+   "corr_all": 0.06016438145427116
+  }
+ },
+ "base_rate_train": 0.552536231884058,
+ "base_rate_all": 0.5532608695652174,
+ "n_split": {
+  "train": 552,
+  "cal": 184,
+  "test": 184
+ },
+ "placebo_rule": "small-n fallback: min |corr_train| with p_train > 0.3 and |corr_all| < 0.02",
+ "placebos": [
+  "cath_firsthalf"
+ ]
+}

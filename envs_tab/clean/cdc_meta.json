@@ -1,0 +1,244 @@
+{
+ "dataset": "cdc",
+ "n": 253680,
+ "split_seed": 891,
+ "findings": {
+  "high_bp": {
+   "name": "Blood-pressure history",
+   "finding_text": "the patient has been told they have high blood pressure",
+   "threshold": "HighBP == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.42786187322611163,
+   "corr_train": 0.26185649586304244,
+   "emp_s1": 0.7498585439456809,
+   "emp_s0": 0.3757328244274809,
+   "missing_rate": 0.0
+  },
+  "high_chol": {
+   "name": "Cholesterol history",
+   "finding_text": "the patient has been told they have high cholesterol",
+   "threshold": "HighChol == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.4244980552927573,
+   "corr_train": 0.1978803066716252,
+   "emp_s1": 0.6675782723500566,
+   "emp_s0": 0.38514503816793894,
+   "missing_rate": 0.0
+  },
+  "obese": {
+   "name": "Body-mass index",
+   "finding_text": "the patient's BMI is 30 or above",
+   "threshold": "BMI >= 30",
+   "is_placebo": false,
+   "prevalence_train": 0.34729449174813415,
+   "corr_train": 0.19806778195199498,
+   "emp_s1": 0.5816672953602414,
+   "emp_s0": 0.30935114503816796,
+   "missing_rate": 0.0
+  },
+  "smoker": {
+   "name": "Smoking history",
+   "finding_text": "the patient has smoked at least 100 cigarettes in their life",
+   "threshold": "Smoker == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.44222379901187847,
+   "corr_train": 0.06197254733362119,
+   "emp_s1": 0.5187193511882309,
+   "emp_s0": 0.4298396946564885,
+   "missing_rate": 0.0
+  },
+  "stroke": {
+   "name": "Stroke history",
+   "finding_text": "the patient has had a stroke",
+   "threshold": "Stroke == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.04106880058866814,
+   "corr_train": 0.10458928511136267,
+   "emp_s1": 0.09265371557902678,
+   "emp_s0": 0.0327175572519084,
+   "missing_rate": 0.0
+  },
+  "heart": {
+   "name": "Heart history",
+   "finding_text": "the patient has coronary heart disease or a past heart attack",
+   "threshold": "HeartDiseaseorAttack == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.09377956480605487,
+   "corr_train": 0.17591759084358286,
+   "emp_s1": 0.22123726895511128,
+   "emp_s0": 0.07314503816793894,
+   "missing_rate": 0.0
+  },
+  "inactive": {
+   "name": "Physical activity",
+   "finding_text": "the patient did no physical activity outside work in the past 30 days",
+   "threshold": "PhysActivity == 0",
+   "is_placebo": false,
+   "prevalence_train": 0.2431212551245664,
+   "corr_train": 0.11737399337324485,
+   "emp_s1": 0.3682572614107884,
+   "emp_s0": 0.22286259541984732,
+   "missing_rate": 0.0
+  },
+  "fair_poor": {
+   "name": "Self-rated health",
+   "finding_text": "the patient rates their general health as fair or poor",
+   "threshold": "GenHlth >= 4",
+   "is_placebo": false,
+   "prevalence_train": 0.17208031115315883,
+   "corr_train": 0.2510935554760178,
+   "emp_s1": 0.4076291965296115,
+   "emp_s0": 0.1339465648854962,
+   "missing_rate": 0.0
+  },
+  "phys_days": {
+   "name": "Physical health days",
+   "finding_text": "the patient had poor physical health on 14 or more of the last 30 days",
+   "threshold": "PhysHlth >= 14",
+   "is_placebo": false,
+   "prevalence_train": 0.1316947860822033,
+   "corr_train": 0.15810208777406748,
+   "emp_s1": 0.26456997359486983,
+   "emp_s0": 0.11018320610687023,
+   "missing_rate": 0.0
+  },
+  "diff_walk": {
+   "name": "Mobility",
+   "finding_text": "the patient has serious difficulty walking or climbing stairs",
+   "threshold": "DiffWalk == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.16751419110690635,
+   "corr_train": 0.21613963376906575,
+   "emp_s1": 0.36811580535646926,
+   "emp_s0": 0.1350381679389313,
+   "missing_rate": 0.0
+  },
+  "age60": {
+   "name": "Age",
+   "finding_text": "the patient is 60 years or older",
+   "threshold": "Age >= 9 (60-64 and above)",
+   "is_placebo": false,
+   "prevalence_train": 0.4826487438242405,
+   "corr_train": 0.1605238746158978,
+   "emp_s1": 0.6820067898906074,
+   "emp_s0": 0.45037404580152673,
+   "missing_rate": 0.0
+  },
+  "low_income": {
+   "name": "Household income",
+   "finding_text": "the household income is below $20,000 a year",
+   "threshold": "Income <= 3",
+   "is_placebo": false,
+   "prevalence_train": 0.14781089036055922,
+   "corr_train": 0.12231855029845244,
+   "emp_s1": 0.25570539419087135,
+   "emp_s0": 0.13034351145038167,
+   "missing_rate": 0.0
+  },
+  "heavy_alcohol": {
+   "name": "Alcohol use",
+   "finding_text": "the patient is a heavy drinker (more than 14 drinks a week for men, 7 for women)",
+   "threshold": "HvyAlcoholConsump == 1",
+   "is_placebo": false,
+   "prevalence_train": 0.05593661305581835,
+   "corr_train": -0.05748632298119614,
+   "emp_s1": 0.023104488872123727,
+   "emp_s0": 0.06125190839694657,
+   "missing_rate": 0.0
+  },
+  "no_veg": {
+   "name": "Vegetable intake",
+   "finding_text": "the patient does not eat vegetables at least once a day",
+   "threshold": "Veggies == 0",
+   "is_placebo": false,
+   "prevalence_train": 0.18832124461263533,
+   "corr_train": 0.05867172786338002,
+   "emp_s1": 0.24533195020746887,
+   "emp_s0": 0.1790916030534351,
+   "missing_rate": 0.0
+  },
+  "coverage": {
+   "name": "Health-care coverage",
+   "finding_text": "the patient has some form of health-care coverage",
+   "threshold": "AnyHealthcare == 1",
+   "is_placebo": true,
+   "prevalence_train": 0.9515334279407127,
+   "corr_train": 0.016951529922101412,
+   "emp_s1": 0.9605809128630706,
+   "emp_s0": 0.9500687022900763,
+   "missing_rate": 0.0
+  }
+ },
+ "placebo_pool": {
+  "coverage": {
+   "name": "Health-care coverage",
+   "finding_text": "the patient has some form of health-care coverage",
+   "threshold": "AnyHealthcare == 1",
+   "prevalence_train": 0.9515334279407127,
+   "corr_train": 0.016951529922101412,
+   "emp_s1": 0.9605809128630706,
+   "emp_s0": 0.9500687022900763,
+   "missing_rate": 0.0
+  },
+  "cost_barrier": {
+   "name": "Cost barrier",
+   "finding_text": "the patient could not see a doctor in the past year because of cost",
+   "threshold": "NoDocbcCost == 1",
+   "prevalence_train": 0.0834975822558604,
+   "corr_train": 0.02895421281930307,
+   "emp_s1": 0.10340437570728027,
+   "emp_s0": 0.08027480916030534,
+   "missing_rate": 0.0
+  },
+  "male": {
+   "name": "Sex",
+   "finding_text": "the patient is male",
+   "threshold": "Sex == 1",
+   "prevalence_train": 0.4391490591821718,
+   "corr_train": 0.03404330854903277,
+   "emp_s1": 0.48113919275745004,
+   "emp_s0": 0.43235114503816796,
+   "missing_rate": 0.0
+  },
+  "no_fruit": {
+   "name": "Fruit intake",
+   "finding_text": "the patient does not eat fruit at least once a day",
+   "threshold": "Fruits == 0",
+   "prevalence_train": 0.3666364448649217,
+   "corr_train": 0.041786760273882326,
+   "emp_s1": 0.41668238400603547,
+   "emp_s0": 0.3585343511450382,
+   "missing_rate": 0.0
+  },
+  "mental_days": {
+   "name": "Mental health days",
+   "finding_text": "the patient had poor mental health on 14 or more of the last 30 days",
+   "threshold": "MentHlth >= 14",
+   "prevalence_train": 0.09698570377378324,
+   "corr_train": 0.06693707460317039,
+   "emp_s1": 0.14621840814786874,
+   "emp_s0": 0.08901526717557252,
+   "missing_rate": 0.0
+  },
+  "college": {
+   "name": "Education",
+   "finding_text": "the patient has a college degree (4 years or more)",
+   "threshold": "Education == 6",
+   "prevalence_train": 0.4231972038263429,
+   "corr_train": -0.10549074795535793,
+   "emp_s1": 0.2936627687665032,
+   "emp_s0": 0.4441679389312977,
+   "missing_rate": 0.0
+  }
+ },
+ "base_rate_train": 0.1393356459581625,
+ "base_rate_all": 0.13933301797540207,
+ "n_split": {
+  "train": 152208,
+  "cal": 50736,
+  "test": 50736
+ },
+ "placebos": [
+  "coverage"
+ ]
+}
