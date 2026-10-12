@@ -1,4 +1,4 @@
-"""Reviewer M6: validity of the reference models and robustness of the comparison to the reference (no LLM calls).
+"""validity of the reference models and robustness of the comparison to the reference (no LLM calls).
   metrics   out-of-sample AUC, Brier score (and the base-rate Brier score) and ECE of the eight reference models on the test
             records with every finding observed (from envs_tab/models/*/metrics.json and envs_real/voi/summary_*.json).
   records   ALTERNATIVE reference of a different model class: masked logistic regression with all pairwise interactions of

@@ -1,4 +1,4 @@
-"""Additional knowledge-required tabular scenarios for a higher-powered realized-utility test (reviewer S3, 2026-10-11):
+"""Additional knowledge-required tabular scenarios for a higher-powered realized-utility test (additional S3, 2026-10-11):
 new scenario draws from TEST records used by neither the original test scenarios nor the fresh scenarios, with an
 independent seed. Taiwan / CDC only (German / Heart have ~200 test records). Writes data/{ds}_big.jsonl.gz
 (ids '<ds>-test-big-<k>')."""

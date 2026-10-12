@@ -1,4 +1,4 @@
-"""Reviewer M1: which information to acquire (selection) vs when to stop (stopping), on first decisions.
+"""which information to acquire (selection) vs when to stop (stopping), on first decisions.
 A composite policy stops if its STOP rule says stop and otherwise acquires the check ranked first by its SELECTION rule.
   selection: llm (the direct policy's most likely check, ignoring its stop option), eig (largest EIG on the elicited
              specification), diva (largest net decision value on the same specification), diva_u, oracle (largest DP Q-value)
@@ -84,7 +84,7 @@ def table():
     out = json.load(open(f"{IS}/results/m1_decomp.json"))
     G = out["groups"]
     rows = [("llm", "LLM (direct policy)"), ("eig", "EIG"), ("diva_u", "\\diva{}-U"), ("oracle", "DP optimum")]
-    cols = [("knowledge", "llm"), ("knowledge", "diva_u"), ("knowledge", "oracle"), ("controlled", "llm"), ("controlled", "diva_u"), ("controlled", "oracle")]  # knowledge-required first (user 10-12)
+    cols = [("knowledge", "llm"), ("knowledge", "diva_u"), ("knowledge", "oracle"), ("controlled", "llm"), ("controlled", "diva_u"), ("controlled", "oracle")]  # knowledge-required first
     lines = []
     for a, name in rows:
         cells = []

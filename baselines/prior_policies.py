@@ -1,4 +1,4 @@
-"""Closest prior work run as acquisition baselines (reviewer gap M4), behind the same policy interface as policies.py.
+"""Closest prior work run as acquisition baselines (additional analyses M4), behind the same policy interface as policies.py.
 
 DeLLMa (Liu et al., 2025; `dellma`), adapted to the acquire-or-stop decision:
   1) state forecasting: the LLM rates each state of the latent case (adverse / benign) on DeLLMa's six-point verbal

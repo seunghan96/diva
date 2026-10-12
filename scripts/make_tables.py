@@ -28,7 +28,7 @@ def fmt_row(vals, lower=True):
 
 
 # ---------------------------------------------------------------------------------------------------------------------
-# Shared builders (user rules 2026-10-10): \small, no adjustbox, vertical rule after the label column (and before Avg.),
+# Shared builders: \small, no adjustbox, vertical rule after the label column (and before Avg.),
 # ours shaded (oursrow), multirow-centered single header cells, canonical method / LLM / environment orders, TBD cells.
 # ---------------------------------------------------------------------------------------------------------------------
 OURS_ROW = "\\rowcolor{oursrow} "
@@ -55,7 +55,7 @@ CITE_W = {"BED-LLM": "4.8em"}  # header width of a cited method column (the cita
 
 
 def hcell(name, two=False, narrow=False):
-    """header cell of a method column. Default (F6, user 10-11): the name is never split; a citation goes on a second line at
+    """header cell of a method column. Default the name is never split; a citation goes on a second line at
     natural width. narrow=True (tables with many method columns): the citation wraps inside a box as wide as needed for the
     name, and the name itself is still kept on one line."""
     if two and name in MCITE:
@@ -224,7 +224,7 @@ def _tl(a, b):
 
 
 def table_ablation():
-    """Main Table tab:ablation (user decision 2026-10-11): a cumulative build-up from the direct choice to DIVA-DP on the
+    """Main Table tab:ablation: a cumulative build-up from the direct choice to DIVA-DP on the
     controlled probe subset, every row adding exactly one module to the row above, then DIVA with its decision value replaced
     by EIG and the true-specification reference. Same scenarios (data/probe_subset), same metric (KEY), same 20 LLMs
     (complete.KNOW_LLMS); a row is TBD unless every LLM covers every scenario.
@@ -277,7 +277,6 @@ def table_ablation():
     build = [("direct", "Direct"), ("raw", "+ Decision value on imagined beliefs"), ("bins", "+ Elicited specification (11-option)"),
              ("diva", "+ Numeric answers (= \\diva{})"), ("diva_dp", "+ DP lookahead (= \\diva{}-DP)")]
     lines, prev = [], None
-    # user 10-11: best (bold) and second best (underline) among the method rows (the true-specification reference excluded)
     fb = dict(zip([k for k, _ in build] + ["fac_eig"], fmt_best([val[k] / 100 if val[k] is not None else None for k, _ in build] + [val["fac_eig"] / 100 if val["fac_eig"] is not None else None], scale=100)))
     for k, n in build:
         v = val[k]
@@ -304,7 +303,7 @@ def table_ablation():
 
 SHOW_GENERIC = False
 # Table 3 / tab:know_myo: a cell is shown only when the method has been run for EVERY LLM of the fixed set on that env;
-# otherwise a placeholder is printed (user rule: no partial averages in tables).
+# otherwise a placeholder is printed.
 from complete import KNOW_LLMS
 PH = "\\textcolor{gray}{TBD}"
 KNOW_ENVS = [("tab:taiwan", "Taiwan"), ("tab:german", "German"), ("tab:cdc", "CDC"), ("tab:heart", "Heart"),
@@ -354,7 +353,7 @@ def _know_table(R, field, label, fname):
     return sum(v is None for v in vals.values())
 
 
-MERGED_AVG = False  # both Avg. columns or neither (user rule 2026-10-11); both dropped as the table is otherwise too wide
+MERGED_AVG = False  # both Avg. columns or neither; both dropped as the table is otherwise too wide
 MERGED_COLSEP = "2pt"
 EXTERNAL_GROUPS = ("Prompting", "Decision-aware prompting", "Information gain", "Program-aided")
 
@@ -367,7 +366,7 @@ def _two_line(name):
 
 
 def _merged_table(R):
-    """Main-text Table tab:know (user decision 2026-10-11): ONE table* with shared method rows; columns = the eight
+    """Main-text Table tab:know: ONE table* with shared method rows; columns = the eight
     knowledge-required environments (| Avg.) | the four controlled domains (| Avg.). Cells: first-decision DP regret (x100)
     on the first 300 test scenarios averaged over the same 20 LLMs, TBD unless all 20 are complete. Wins of DIVA-U is
     counted against the external baselines (Prompting ... Program-aided) per LLM."""
@@ -375,7 +374,7 @@ def _merged_table(R):
     B = json.load(open(f"{IS}/results/bin_main.json"))
     ckey = {mname(k): k for k, _ in CTRL_METHS}
     GEN = json.load(open(f"{IS}/results/generic_main.json")) if os.path.exists(f"{IS}/results/generic_main.json") else {}
-    GK = {"const_diva": "diva", "const_diva_u": "diva_u"}  # user 10-12: LLM-free generic rows in Table tab:know
+    GK = {"const_diva": "diva", "const_diva_u": "diva_u"}
     meths = [m for m, _ in msort([(k, None) for k, _ in KNOW_METHS] + [(k, None) for k in GK])]
     names = [mname(m) for m in meths]
     kv = {}
@@ -409,14 +408,13 @@ def _merged_table(R):
     json.dump({"know": {m: {e.split(":")[1]: kv[(m, e)] for e, _ in KNOW_ENVS} for m in meths},
                "ctrl": {m: {d: cv[(m, d)] for d in DOM_ORDER} for m in meths},
                "group": {m: _MG.get(n) for m, n in zip(meths, names)}}, open(f"{IS}/results/know_table_means.json", "w"), indent=1)
-    # user 10-11: Table tab:know shows DIVA and DIVA-U only (DIVA-DP in tab:variants); user 10-12: generic rows moved to tab:generic
     keep = [i for i, m in enumerate(meths) if m not in ("diva_dp", "const_diva", "const_diva_u")]
     meths = [meths[i] for i in keep]; names = [names[i] for i in keep]
     return merged_method_table(meths, names, kv, cv, kper, cper, KNOW_LLMS, CTRL_BL_LLMS, "tab:know", "main_know.tex")
 
 
 def merge_diva_rows(names, colf, cidx, pair=("\\diva{}", "\\diva{}-U")):
-    """user 10-11: where DIVA-U equals DIVA (controlled columns cidx), print the value once, vertically centered over the two
+    """where DIVA-U equals DIVA (controlled columns cidx), print the value once, vertically centered over the two
     adjacent rows; the multirow sits in the lower row with a negative span so the row colour of that row does not cover it"""
     try:
         i = names.index(pair[0]); j = names.index(pair[1])
@@ -479,7 +477,6 @@ def merged_method_table(meths, names, kv, cv, kper, cper, kllms, cllms, label, f
         cell = lambda k, nl: (f"{cnt[k]['sig']}/{nl}" if cnt.get(k, {}).get("n_llm") == nl else PH)
         sig = [cell(e, len(kllms)) for e, _ in KNOW_ENVS] + (["--"] if MERGED_AVG else [])
         sig += [cell(d, len(cllms)) for d in DOM_ORDER] + (["--"] if MERGED_AVG else [])
-        # user 10-11: significance moves to the appendix (Table tab:sig_wins), not a row of Table tab:know
         hdr = " & ".join([n for _, n in KNOW_ENVS] + [ENVN[d] for d in DOM_ORDER])
         nk_, nc_ = len(KNOW_ENVS), len(DOM_ORDER)
         st = ("\\begin{table*}[t]\n\\centering\n\\small\n\\setlength{\\tabcolsep}{3pt}\n\\begin{tabular}{l|" + "c" * nk_ + "|" + "c" * nc_ + "}\n\\toprule\n"
@@ -537,7 +534,6 @@ def table_know2():
                 return r[field] if r and r.get(field) is not None else None
             out.append(llm_rows_table(KNOW_LLMS, meths, val, "tab:full_know_llm" + tag + "_" + e.split(":")[1],
                                       "\\textbf{" + ("Myopic" if tag else "DP") + " regret per LLM: " + en + ".} Same first 300 test scenarios as Table~\\ref{tab:know" + ("_myo" if tag else "") + "}.", const=("Never", never_k(e, field))))
-    # user 10-12: the per-LLM myopic tables are parked (paper/parked/, not in the PDF); Table tab:know_myo keeps the myopic averages
     n_dp = len(KNOW_ENVS)
     open(f"{OUT}/full_know_llm.tex", "w").write("\n".join(out[:n_dp]))
     os.makedirs(f"{IS}/paper/parked", exist_ok=True)

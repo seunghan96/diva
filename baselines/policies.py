@@ -5,7 +5,7 @@
 
 `st` is a common.State (verbalized evidence, remaining candidate checks with costs, the decision from the row).
 Higher score = more preferred; scores feed the ranking metrics (Spearman with VOI, top-1).
-The lead's IO-VOI method is intentionally NOT implemented here.
+The the IO-VOI method is intentionally NOT implemented here.
 """
 import asyncio, hashlib, json, math, os, random, re
 
@@ -229,7 +229,7 @@ def _martingale_p1(b0, b1, bz):
 
 
 class EIGImagined(Policy):
-    """EIG with imagined-observation beliefs (DESIGN.md s4: same LLM beliefs as the lead's method, objective = IG).
+    """EIG with imagined-observation beliefs (DESIGN.md s4: same LLM beliefs as the the method, objective = IG).
     For check e on factor f: b0 = LLM belief over f, b_o = LLM belief over f after an imagined result o;
     p(o): binary latent + 2 outcomes -> Bayes-consistency (martingale, as DESIGN.md); otherwise the LLM predictive
     distribution over the outcomes. EIG(e) = H(b0) - sum_o p(o) H(b_o) (bits). Stop iff max EIG < tau."""
@@ -498,7 +498,7 @@ COT_INSTR = ("Think step by step about what you already know and what else you n
              "should decide now.")
 
 
-_BLP = int(os.environ.get("BL_PARA", "0"))  # F4 (reviewer S6): paraphrased instructions for CoT / VoI-P / PAL; 0 = original
+_BLP = int(os.environ.get("BL_PARA", "0"))  # F4 (paraphrased instructions for CoT / VoI-P / PAL; 0 = original
 COT_INSTR_P = {1: ("Reason step by step about what is already known and what further information the decision requires, "
                    "remembering that each request costs something. What do you still need? End with a final line 'ANSWER: X', "
                    "where X is the letter of the one check to run next, or S if nothing more is needed and you should decide now."),

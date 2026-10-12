@@ -1,4 +1,4 @@
-"""Shared helpers of the reviewer analyses F8 (an_f8_*.py): exact DP values of a knowledge-required scenario under its
+"""Shared helpers of the additional analyses F8 (an_f8_*.py): exact DP values of a knowledge-required scenario under its
 reference model (tabular records: stored reference joint; SEC filings: stored reference naive-Bayes model) for rescaled
 check costs and perturbed payoffs, so that first decisions can be scored against the DP optimum of any cost regime.
 Reproduces sc["exact"]["q"], ["dp_value"] and ["value_of_stopping"] at cost scale 1 (checked in an_f8_costsweep.py)."""

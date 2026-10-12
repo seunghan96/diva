@@ -1,23 +1,49 @@
 # DIVA: Decision-Informed Value-of-information Acquisition
 
-Code and environments for the paper *Not All Information Is Worth Asking For: Decision-Informed Information Seeking with LLMs*.
+Code for *Not All Information Is Worth Asking For: Decision-Informed Information Seeking with LLMs*.
 
-## Layout
-- `envs_synth/`: Controlled environments (four domains, stated reliabilities): generators, test/dev scenarios (`data/`), and exact DP / myopic reference policies.
-- `envs_tab/`: Knowledge-required environments on UCI records (Taiwan credit, German credit, CDC diabetes, heart disease): feature binarization, reference models, and scenarios.
-- `envs_real/`: Knowledge-required environments on SEC filings (return and volatility targets): scenario construction and reference models. Raw EDGAR downloads are not included; `envs_real/scripts` re-creates them from the public SEC EDGAR APIs.
-- `baselines/`: LLM baselines (Direct, CoT, SC, ReAct, Ask-P, VoI-P, VoI-Ask, BED-LLM, PAL, and further controls) and the episode runner.
-- `scripts/`: DIVA, DIVA-U, and DIVA-DP (elicitation, decision value, stopping), evaluation and aggregation, and the scripts that generate every table and figure of the paper.
-- `serving/`: vLLM serving helper and client used for all open-weight LLMs.
-- `results/`: Aggregated results behind the tables (large per-scenario files are omitted).
-- `PREREG_*.md`, `ERRATA.md`: Pre-registration amendments and deviations (Appendix H of the paper).
+DIVA lets an LLM specify a small decision model through short numeric questions and acquires a check only if its decision value exceeds its cost; DIVA-U averages the decision value over plausible strengths of each check, and DIVA-DP plans every remaining acquisition with exact dynamic programming.
 
-## Usage
-1. Serve an open-weight LLM with vLLM (see `serving/serve_one.sh`; checkpoints in Appendix C.5 of the paper).
-2. Run DIVA and the baselines on an environment, e.g., `python scripts/eval_test.py` (controlled), `python scripts/eval_tab.py` (UCI records), `python scripts/eval_real.py` (SEC filings), and `python baselines/run.py`.
-3. Aggregate and build the tables and figures with `python scripts/make_tables.py`, `python scripts/make_tables_app.py`, and `python scripts/figs_all.py`.
+## Structure
+```
+envs_synth/   controlled environments (stated reliabilities, exact DP optimum)
+envs_tab/     knowledge-required environments on UCI records
+envs_real/    knowledge-required environments on SEC filings
+scripts/      DIVA (elicitation, decision value, stopping), evaluation, and aggregation
+baselines/    LLM baselines (Direct, CoT, SC, ReAct, Ask-P, VoI-P, VoI-Ask, BED-LLM, PAL, ...)
+serving/      vLLM serving script and client
+```
 
-Paths and server names were removed for anonymity; set the model endpoints in `serving/client.py`.
+## Setup
+```
+pip install vllm numpy pandas scipy scikit-learn lightgbm pyarrow matplotlib
+bash serving/serve_one.sh   # serve an open-weight LLM (checkpoints in Appendix C.5 of the paper)
+```
+Set the served endpoints in `serving/client.py`.
 
-## License
-Code: For research use only during review. UCI datasets are redistributed under their original licenses; SEC filings are public U.S. government data.
+## Running DIVA
+```
+# 1. Elicit the decision model (short numeric questions)
+python scripts/run_factored.py      # controlled environments
+python scripts/run_factored_k.py    # UCI records
+python scripts/run_factored_real.py # SEC filings
+# 2. Score DIVA, DIVA-U, DIVA-DP and the references
+python scripts/eval_test.py         # controlled
+python scripts/eval_tab.py          # UCI records
+python scripts/eval_real.py         # SEC filings
+python scripts/episodes_know.py     # full acquire-then-decide episodes
+```
+
+## Baselines
+```
+python baselines/run.py --model <served model> --methods all --env envs_synth/data/binary/finance_test.jsonl.gz
+```
+
+## Tables and figures
+```
+python scripts/agg_bin.py && python scripts/agg_know_main.py && python scripts/agg_episodes.py
+python scripts/make_tables.py && python scripts/make_tables_app.py && python scripts/figs_all.py
+```
+
+## Data
+UCI datasets are redistributed under their original licenses. SEC filings are public; `envs_real/scripts` rebuilds the records from SEC EDGAR.

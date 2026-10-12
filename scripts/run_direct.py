@@ -39,7 +39,7 @@ def build(sc, perm_idx):
     txt = (head + "\n\n" + intro + "\n" + "\n".join(lines) +
            "\n\nYou may run checks one at a time, see each result, and stop whenever you want."
            "\nQuestion: What do you do next? Answer with the letter of one option only.")
-    if PARA:  # F4 (reviewer S6): paraphrased closing instruction; default (0) unchanged
+    if PARA:  # F4 (paraphrased closing instruction; default (0) unchanged
         txt = txt.replace("\n\nYou may run checks one at a time, see each result, and stop whenever you want."
                           "\nQuestion: What do you do next? Answer with the letter of one option only.", PARA_TXT[PARA])
     return txt, mapping

@@ -1,4 +1,4 @@
-"""Prompt-paraphrase robustness of the baselines (reviewer S6, 2026-10-11), next to DIVA's paraphrase robustness (tab:para).
+"""Prompt-paraphrase robustness of the baselines (additional S6, 2026-10-11), next to DIVA's paraphrase robustness (tab:para).
 Controlled environments, first 300 test scenarios per domain, first-decision DP regret (x100), averaged over the four
 domains and the 20 LLMs. Original prompts: baselines/outputs (Direct, CoT, VoI-P, PAL, as in tab:know); paraphrases 1-2:
 baselines/outputs_para{k} (BL_PARA=k). DIVA: the two question

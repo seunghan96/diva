@@ -1,4 +1,4 @@
-"""R6-E6: paired clustered-bootstrap CIs for the headline tables.
+"""paired clustered-bootstrap CIs for the headline tables.
 Table 2 (knowledge, first 300 test rows): for each environment, the mean over LLMs of the per-scenario regret
 difference (DP optimum and myopic optimum) of DIVA-U and DIVA against Never, Direct and Fac-EIG‡; scenarios are resampled
 (clusters = scenario groups / ids), with the same resample applied to every LLM.

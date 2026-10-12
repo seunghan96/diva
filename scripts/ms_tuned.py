@@ -1,4 +1,4 @@
-"""R6-SF2: multi-state baselines with thresholds tuned on the DEVELOPMENT split (per LLM and domain) on DIVA's own
+"""multi-state baselines with thresholds tuned on the DEVELOPMENT split (per LLM and domain) on DIVA's own
 specification: Fac-EIG‡ and Fac-ES‡ (acquire the argmax if its score exceeds tau), plus Always ask (DIVA's top check).
 Test = held-out scenarios 500-999 (outputs/test_ms2). Writes results/ms_tuned.json {tag: {dom: {method: summary}}}."""
 import sys, os, glob, json, collections

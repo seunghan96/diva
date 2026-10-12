@@ -28,7 +28,6 @@ POLS = [p for p in os.environ.get("EPK_POLS", "").split(",") if p]
 OUTNAME = os.environ.get("EPK_OUT", "episodes_know")
 FIRST = [None]
 SKIP_TAGS = set(os.environ.get("EPK_SKIP", "").split(",")) - {"", "none"}
-# user order 10-11: Table 5 (episodes_know_k4) and the first-300 table cover all 20 LLMs (70B-class inputs are complete),
 # so the episode outputs used by tables never skip LLMs, whatever EPK_SKIP the caller passes.
 if OUTNAME in ("episodes_know_k4", "episodes_know"):
     SKIP_TAGS = set()
@@ -224,7 +223,7 @@ def main():
         for envn, tag, o in pool.imap_unordered(cell, jobs):
             out[envn][tag] = o
     # "Always ask" as an episode policy = ask at every step until no check remains, then decide (exact, reference posterior):
-    # identical to "always"; stored under the canonical key always_top as well (user decision 10-11)
+    # identical to "always"; stored under the canonical key always_top as well
     for e_ in out.values():
         for r_ in e_.values():
             if isinstance(r_, dict) and "always" in r_:

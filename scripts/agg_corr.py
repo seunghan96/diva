@@ -1,4 +1,4 @@
-"""Aggregate the correlated-evidence controlled environments (scripts/corr_env.py, reviewer gap M3) into results/corr.json.
+"""Aggregate the correlated-evidence controlled environments (scripts/corr_env.py, additional analyses M3) into results/corr.json.
 Per LLM tag, domain and method: first-decision DP regret (exact, from the TRUE joint model), myopic regret, stop rate, and
 the share of first decisions that buy the correlated candidate in the two variants where its partner was already run
 (dup_known, cc_known); per variant as well. DIVA / DIVA-DP use the LLM's factored specification (outputs/corr/facnum_*),

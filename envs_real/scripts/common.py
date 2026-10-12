@@ -26,7 +26,7 @@ class SEC:
 
     def _adapt(self):
         # share EDGAR's 10 req/s budget with other project fetchers on this IP: if another SEC fetcher
-        # (lead's scripts/data/fetch_*.py) is running, drop to 2.5 req/s, else use the configured rate.
+        # (the scripts/data/fetch_*.py) is running, drop to 2.5 req/s, else use the configured rate.
         import re as _re
         busy = False
         for lf in ('<path>',

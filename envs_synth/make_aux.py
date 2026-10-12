@@ -1,5 +1,5 @@
 """After generation: pilot subsets (first 150 rows of each dev file; rows are shuffled by group so prefixes are balanced),
-test1000 subsets (first 1000 rows of each test file, lead's DESIGN.md size), and data/STATS.json with per-file counts."""
+test1000 subsets (first 1000 rows of each test file, the DESIGN.md size), and data/STATS.json with per-file counts."""
 import gzip, json, os, glob
 from collections import Counter
 

@@ -1,4 +1,4 @@
-"""Analysis Table tab:generic (user decision 2026-10-12): what the LLM's knowledge contributes. First-decision DP regret
+"""Analysis Table tab:generic: what the LLM's knowledge contributes. First-decision DP regret
 (x100) of the Table-3 cells (first 300 test scenarios, mean over the same 20 LLMs), averaged over environment groups:
 records (Taiwan, German, CDC, Heart), SEC filings (4 targets), controlled (4 domains). Rows: the best LLM baseline (per
 environment the lowest mean regret among the external LLM baselines of Table tab:know, then averaged over the group),
@@ -31,9 +31,6 @@ def best_baseline(part, envs):
         v = [M[part][m].get(e) for m in ext]
         per.append(None if any(x is None for x in v) else min(v))
     return gmean(per)
-
-
-# user 10-12 (candidate C): method x source of the check strengths; no group labels and no shading (both sources use DIVA's computation)
 ROWS = [("best", None, None), ("never", None, None),
         ("const_diva", "\\diva{}", "One shared"), ("diva", None, "From LLM"),
         ("const_diva_u", "\\diva{}-U", "One shared"), ("diva_u", None, "From LLM")]

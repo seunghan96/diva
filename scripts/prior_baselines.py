@@ -1,4 +1,4 @@
-"""Closest prior work as baselines (reviewer gap M4): DeLLMa (Liu et al., 2025) and UoT (Hu et al., 2024), run by
+"""Closest prior work as baselines (additional analyses M4): DeLLMa (Liu et al., 2025) and UoT (Hu et al., 2024), run by
 baselines/run_prior.py (jobs/f3_prior.tsv), scored as Table tab:know (first-decision DP regret, first 300 test scenarios, the
 same 20 LLMs), next to Direct, VoI-Ask, BED-LLM, Never, DIVA and DIVA-U on IDENTICAL rows per (LLM, environment).
 Writes results/prior_baselines.json and paper/tables/prior_baselines.tex (gray TBD until all 20 LLMs are complete)."""
@@ -69,7 +69,7 @@ def ctrl_cell(tag, d, env, first):
     return rows
 
 
-OPTIONAL = {"voi_tool"}  # added later (reviewer request); its cell is TBD until complete, without blanking the other rows
+OPTIONAL = {"voi_tool"}  # added later (additional analyses); its cell is TBD until complete, without blanking the other rows
 
 
 def summarize_cell(rows, env):
@@ -133,7 +133,6 @@ def table(res):
             elif complete and len(order) > 1 and round(100 * v, 2) == order[1]:
                 s = "\\underline{" + s + "}"
             cell[(k, e)] = s
-    # user 10-11 rule: in the controlled environments DIVA-U equals DIVA, so the value is printed once, centered over both rows
     for d in DOM_ORDER:
         if ("diva", d) in cell and ("diva_u", d) in cell and cell[("diva", d)] == cell[("diva_u", d)]:
             cell[("diva_u", d)] = "\\multirow{-2}{*}{" + cell[("diva", d)] + "}"; cell[("diva", d)] = ""

@@ -90,10 +90,10 @@ def build(key, label, cap, keys=None):
 
 # main-text Table tab:episodes_know: exactly the methods of Table tab:know with real end-to-end episodes on test rows 0-149
 # (Always ask has no stand-alone episode policy; its first decision followed by DIVA is reported as Always ask -> DIVA)
-GENR = [("const_diva", r"Generic \diva{}"), ("const_diva_u", r"Generic \diva{}-U")]  # user 10-12: LLM-free generic rows
+GENR = [("const_diva", r"Generic \diva{}"), ("const_diva_u", r"Generic \diva{}-U")]
 GK = {"const_diva": "diva", "const_diva_u": "diva_u"}
-MAIN_KEYS = [k for k, _ in LLMM] + ["never", "always_top", "diva", "diva_u"]  # user 10-12: generic rows moved to the Analysis table tab:generic
-_UNUSED_GENERIC = ["const_diva", "const_diva_u"]  # user 10-11: no DIVA-DP in main-text floats (Table 5 ablation only)  # real Always ask episodes (TBD until aggregated)
+MAIN_KEYS = [k for k, _ in LLMM] + ["never", "always_top", "diva", "diva_u"]
+_UNUSED_GENERIC = ["const_diva", "const_diva_u"]
 
 
 # controlled episode keys (results/episodes.json) of the main-table methods; ask1 has no controlled episode run (TBD)
@@ -103,7 +103,7 @@ CKEY = {"direct": "bl_direct", "cot_need": "bl_cot_need", "sc_cot": "bl_sc_cot",
 
 
 def build_merged(key="regret_ref"):
-    """main-text Table tab:episodes (user decision 2026-10-11): the layout of Table tab:know, rows = the methods of Table
+    """main-text Table tab:episodes: the layout of Table tab:know, rows = the methods of Table
     tab:know with real end-to-end episodes, columns = knowledge-required environments (test rows 0-149) | controlled domains"""
     from complete import msort, KNOW_LLMS, EP_CTRL_LLMS, DOM_ORDER
     from make_tables import merged_method_table
@@ -147,7 +147,7 @@ def build_merged(key="regret_ref"):
     kv = {(m, k): kv[(m, ekey[k])] for m in meths for k, _ in KNOW_ENVS}
     full = merged_method_table(meths, names, kv, cv, lambda t, m, k: kper(t, m, ekey[k]), cper, KNOW_LLMS, EP_CTRL_LLMS,
                                "tab:episodes_full", "episodes_full.tex")
-    # main-text Table tab:episodes (user decision 2026-10-11): compact single-column table, one column per environment group,
+    # main-text Table tab:episodes: compact single-column table, one column per environment group,
     # each the mean over that group's environments (TBD unless every environment cell is complete)
     from make_tables import _two_line, OURS_ROW, is_ours
     from complete import group_rows, fmt_best
@@ -158,12 +158,12 @@ def build_merged(key="regret_ref"):
     fk, fc = merge_diva_rows(list(names), [fk, fc], [1])  # controlled: DIVA-U = DIVA, one centered value
     fk, fc = merge_diva_rows(list(names), [fk, fc], [1], ("Generic \\diva{}", "Generic \\diva{}-U"))
     from make_tables import MCITE
-    ONE = {"CoT", "SC", "ReAct", "Ask-P", "VoI-Ask", "PAL"}  # user 10-12: name and citation on one line where the column allows
+    ONE = {"CoT", "SC", "ReAct", "Ask-P", "VoI-Ask", "PAL"}
     lab = lambda n: (n + " \\citep{" + MCITE[n] + "}") if n in ONE and n in MCITE else _two_line(n)
     lines = [(OURS_ROW if is_ours(n) else "") + lab(n) + " & " + fk[i] + " & " + fc[i] + " \\\\" for i, n in enumerate(names)]
     lines = group_rows(names, lines, 3)
     tex = ("\\begin{table}[t]\n\\centering\n\\small\n\\setlength{\\tabcolsep}{5pt}\n\\begin{tabular}{l|cc}\n\\toprule\n"
-           # one header row: the two-line cells are [c] tabulars, so every header cell is centered on the row (user rule 2026-10-11)
+           # one header row: the two-line cells are [c] tabulars, so every header cell is centered on the row
            "\\begin{tabular}[c]{@{}l@{}}Method\\\\(Avg.\\ across " + str(len(KNOW_LLMS)) + " LLMs)\\end{tabular} & \\begin{tabular}[c]{@{}c@{}}Knowledge-\\\\required\\end{tabular} & Controlled \\\\\n"
            "\\midrule\n" + "\n".join(lines) + "\n\\bottomrule\n\\end{tabular}\n\\caption{CAPTION}\n\\label{tab:episodes}\n\\end{table}\n")
     open(f"{IS}/paper/tables/episodes.tex", "w").write(tex)

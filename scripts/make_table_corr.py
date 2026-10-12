@@ -104,7 +104,6 @@ def main():
     for m in METHS:
         lab, n = label(m)
         names.append(n); labs.append((m, lab)); cl.append([num(m, c) for c in cols] + [fmtp(vals[m]["buy"])])
-    # user 10-11 rule: DIVA-U equals DIVA here (reliabilities stated), so each value is printed once, centered over the two rows
     from make_tables import merge_diva_rows
     cl = [list(r) for r in zip(*merge_diva_rows(list(names), [list(c) for c in zip(*cl)], range(len(cl[0]))))]
     for (m, lab), cells in zip(labs, cl):

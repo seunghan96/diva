@@ -1,4 +1,4 @@
-"""Correlated-evidence variant of the controlled binary environments (reviewer gap M3).
+"""Correlated-evidence variant of the controlled binary environments (additional analyses M3).
 The original controlled checks are conditionally independent given Y, which is exactly the factored assumption of DIVA.
 Here two checks share information beyond Y; the exact decision values (VOI, DP) are computed with the TRUE joint model
 (hidden state s = (Y, Z), Z a shared latent), while every stated reliability is the exact marginal P(finding | Y).

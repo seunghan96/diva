@@ -1,4 +1,4 @@
-"""Reviewer S5: the ablation of Table tab:ablation repeated on the knowledge-required environments, by re-scoring existing
+"""the ablation of Table tab:ablation repeated on the knowledge-required environments, by re-scoring existing
 outputs (no LLM calls). First 300 test scenarios per environment, all 20 LLMs, first-decision DP regret.
 Cumulative rows (each adds one module):
   direct      the direct policy

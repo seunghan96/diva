@@ -103,7 +103,7 @@ def table_controls():
 
 
 def _tab(cols, rows, caption, label, star=False, size=r"\small", nlab=1, colsep="3pt", head=None):
-    """generic table: \\small (user rule), canonical orders are applied by the callers; head overrides the header row(s);
+    """generic table: \\small, canonical orders are applied by the callers; head overrides the header row(s);
     long method headers are set on two lines (make_tables.hcell)."""
     env = "table*" if star else "table"
     if head is None:
@@ -296,7 +296,6 @@ def table_altgold():
         if not all(t in A.get(ds, {}) and all(m in A[ds][t] and A[ds][t][m].get("n", 0) >= need for m, _ in ms) for t in KNOW_LLMS):
             rows.append(ENVN[ds] + " & " + " & ".join(_shade(names, [PH] * len(ms))) + r" \\"); continue
         cells = [A[ds][t] for t in KNOW_LLMS]
-        # user 10-12: one-column layout, one row per reference model (main / naive Bayes) instead of "a / b" cells
         for k, (key, lab) in enumerate([("ref", "Main"), ("nb", "NB")]):
             vals = fmt_best([np.mean([c[m][key] for c in cells]) for m, _ in ms], scale=100)
             env = (r"\multirow{2}{*}{" + ENVN[ds] + "}") if k == 0 else ""
@@ -325,7 +324,7 @@ def table_extra_bl():
     return len(rows)
 
 
-# episode display names (user rule 2026-10-11): the exact first-decision baselines keep their Table-3 names; Direct and
+# episode display names: the exact first-decision baselines keep their Table-3 names; Direct and
 # Always ask take their first decision as in Table tab:know and then follow DIVA (stated in the captions)
 EPN = {}  # hybrids keep their honest names (complete.MNAME: Direct -> DIVA, Always ask -> DIVA)
 from complete import mrank as _mrank
@@ -424,7 +423,6 @@ def table_large():
     colf = {t: fmt_best([val[(t, c)] for c, _ in cols], scale=100) for t in tags}
     rows = [(r"\rowcolor{oursrow} " if is_ours(n) else "") + mlabel(n) + " & " + " & ".join(colf[t][i] for t in tags) + r" \\" for i, (c, n) in enumerate(cols)]
     rows = group_rows([n for _, n in cols], rows, 1 + len(tags))
-    # user 10-12: one-line LLM headers (Qwen2.5-72B, Llama-3.3-70B fit)
     t = _tab(["Method"] + [NAMES[x] for x in tags], rows, r"\textbf{Larger LLMs on controlled environments.}", "tab:large", size=r"\small", colsep="2pt")
     open(f"{OUT}/large.tex", "w").write(t)
     return len(rows)
@@ -639,7 +637,7 @@ def table_know1000():
             rows.append(fmt_best(col, scale=100))
     if not rows:
         return 0
-    # F6 (user 10-11): the layout of Table tab:know (methods as rows, environments as columns), so no header needs wrapping
+    # F6: the layout of Table tab:know (methods as rows, environments as columns), so no header needs wrapping
     from make_tables import _two_line, OURS_ROW
     envs8 = ["taiwan", "german", "cdc", "heart", "ret_1", "ret_5", "vol_5", "vol_20"]
     body = [(OURS_ROW if is_ours(n) else "") + _two_line(n) + " & " + " & ".join(rows[j][i] for j in range(len(envs8))) + r" \\"
@@ -705,7 +703,6 @@ def table_ci_main():
                  for m in bl if m != "think" or tag in REASON_CTRL)
         ci = CI.get(tag)
         return [f"{100*ci['ci'][0]:.2f} [{100*ci['ci'][1]:.2f}, {100*ci['ci'][2]:.2f}]" if (ok and ci) else PH]
-    # user 10-12: one full-width table, LLMs in two side-by-side halves next to the environments (no tall one-column list)
     from complete import LLM_FAMILIES, SIZE_OF
     neg = lambda x: x.replace("-", "$-$")
     llm = [(f"{f} {SIZE_OF[t]}", neg(c1(t)[0])) for f, ts in LLM_FAMILIES for t in ts if t in CTRL_BL_LLMS]
@@ -777,7 +774,7 @@ def table_voiask():
 
 def _h(names, mode=False):
     """header cells of method columns, our methods shaded. mode False: name / (citation) at natural width;
-    "stack": name / authors / (year) for tables that would otherwise not fit (F6, user 10-11: never split a method name)"""
+    "stack": name / authors / (year) for tables that would otherwise not fit never split a method name)"""
     return [(OURS_CELL if is_ours(n) else "") + hcell(n, True, narrow=mode) for n in names]
 
 

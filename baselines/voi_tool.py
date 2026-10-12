@@ -1,4 +1,4 @@
-"""VoI-Tool: the LLM is given a correct value-of-information calculator (reviewer request: a fair solver baseline).
+"""VoI-Tool: the LLM is given a correct value-of-information calculator (additional analyses: a fair solver baseline).
 
 The prompt is the scenario, the options, and the source code of voi_net() below. The LLM fills in the numbers it believes:
 its current probability of the adverse case given everything known, and for each available check the probability of each of

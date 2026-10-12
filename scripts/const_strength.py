@@ -1,4 +1,4 @@
-"""R6-E2: LLM-free constant-strength control. Every check gets the same generic strength delta (log-odds spread; findings
+"""LLM-free constant-strength control. Every check gets the same generic strength delta (log-odds spread; findings
 assumed to raise the risk, higher bins assumed to raise the risk), the base rate is the stated one, and the identical
 DIVA / DIVA-U solver is applied. delta is selected on the development split of each environment (grid below).
 Compares with the LLM-specified DIVA / DIVA-U (results/know_main.json, all test rows). Writes results/const_strength.json."""

@@ -1,4 +1,4 @@
-"""Reviewer requests answered on FIRST decisions from existing outputs (no LLM calls), all 20 LLMs, first 300 test scenarios:
+"""additional analyses answered on FIRST decisions from existing outputs (no LLM calls), all 20 LLMs, first 300 test scenarios:
  (C) cost-aware EIG on the elicited specification, EIG - lambda * c / l (acquire the arg max if positive, else stop), with ONE
      lambda selected on the development splits for all environments and LLMs (pooled mean DP regret);
  (E) payoff and cost misspecification: DIVA / DIVA-U decide with g, l and every cost multiplied by independent factors drawn

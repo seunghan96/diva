@@ -1,7 +1,7 @@
 """First-step scoring and full acquire-then-decide episodes for any Policy, scored with the env's own eval_api.
 
 Common random numbers: episode `rep` uses the row's stored world row["episodes"][rep] (true state + every check's
-outcome), the same world the lead's harness and eval_api.evaluate(row, requests, decision, episode=rep) use.
+outcome), the same world the the harness and eval_api.evaluate(row, requests, decision, episode=rep) use.
 """
 import os, time
 

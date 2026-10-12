@@ -34,7 +34,7 @@ def read(p):
     return [json.loads(l) for l in gzip.open(p, "rt")]
 
 
-def fig_incoh(h=1.4, out=None, inside=False):  # h=1.4 (user 10-12, candidate 4)
+def fig_incoh(h=1.4, out=None, inside=False):  # h=1.4
     """(a) imagined vs exact belief change (binned, pooled over the probe LLMs); (b) top-1 check by decision value
     on controlled scenarios where acquiring is optimal: Chance | LLMs (mean, range) | DIVA (stated reliabilities).
     Data: scripts/incoh_probe.py (cached, recomputed when probe/scenario files change)."""
@@ -70,8 +70,8 @@ def fig_incoh(h=1.4, out=None, inside=False):  # h=1.4 (user 10-12, candidate 4)
     ax.plot(B[:, 0], B[:, 1], "-o", color=ORANGE, ms=2.2, lw=1.3, zorder=3)
     ax.axhline(0, color=GRID, lw=0.5, zorder=0)
     ax.set_xlim(0, lim); ax.set_ylim(-0.1, lim); ax.set_xticks([0, 0.3, 0.6]); ax.set_yticks([0, 0.3, 0.6])
-    ax.text(0.30, 0.47, "Exact (Bayes)", color=BLUE, fontsize=FSM, ha="right", va="center")  # one line (user 10-11)
-    ax.text(0.69, 0.17, "LLM-Imagined", color=ORANGE, fontsize=FSM, ha="right", va="bottom")  # above the band (user 10-12)
+    ax.text(0.30, 0.47, "Exact (Bayes)", color=BLUE, fontsize=FSM, ha="right", va="center")  # one line
+    ax.text(0.69, 0.17, "LLM-Imagined", color=ORANGE, fontsize=FSM, ha="right", va="bottom")  # above the band
     ax.set_xlabel("Exact Swing", fontsize=FS, labelpad=1); ax.set_ylabel("Imagined Swing", fontsize=FS, labelpad=1)
     style(ax, "(a) Belief Change")
     # (b) ranking checks by decision value
@@ -155,7 +155,7 @@ def _plain_log(ax):
 
 
 def _box_legend(fig, ax, ncol=2, h_in=0.32, plain=True):
-    """F6 (user 10-11): appendix figures use the main-text legend style, boxed below the plot at 7.8pt"""
+    """F6: appendix figures use the main-text legend style, boxed below the plot at 7.8pt"""
     h, l = ax.get_legend_handles_labels()
     if ax.get_legend():
         ax.get_legend().remove()
@@ -268,7 +268,7 @@ def fig_lc():
 
 # Styling of OUR rows (the trailing DIVA* rows) in fig_trap. None = default (no highlight).
 # Options: "box" (v1), "outline" (v2), "band" (v3), "box_bold" (v4), "dashed_tag" (v5), "sep_outline" (v6).
-HIGHLIGHT_STYLE = "band"  # user 10-10: yellow band + bold labels for our rows (fig_trap_hl_v3)
+HIGHLIGHT_STYLE = "band"
 OURS_SHADE = (255 / 255, 248 / 255, 214 / 255)
 OURS_ROWS = ("DIVA", "DIVA-U", "DIVA-DP")  # our rows (must be the trailing rows of the method order)
 # Design drafts only: aggregate each method over the LLMs whose data for it is complete, print "(k/N)" at each bar end
@@ -354,14 +354,13 @@ def fig_trap(style=None, out=None, partial=None):
              ("never", "Never", "never", "never"), ("always_top", "Always ask", "always_top", "always_top"),
              ("diva", "DIVA", "DIVA", "DIVA"),
              ("diva_u", "DIVA-U", "DIVA", "DIVA-U"),  # controlled: DIVA-U coincides with DIVA (exact gold)
-]  # exactly the Table-3 rows (user rule 2026-10-11); no DIVA-DP in main-text floats (user 10-11)
+]  # exactly the Table-3 rows; no DIVA-DP in main-text floats
     meths = sorted(meths, key=lambda r: CP.mrank(r[0])) if hasattr(CP, "mrank") else meths  # canonical METHOD_ORDER
     envs = ["taiwan", "german", "cdc", "heart", "ret_1", "ret_5", "vol_5", "vol_20"]
-    # user 10-11: one row of two panels sharing the method labels, knowledge-required first (as in Tables 3 and 4)
     panels = [("knowledge", "(a) Knowledge-Req.", list(KNOW_LLMS), list(REASON_KNOW), envs, 3),
               ("controlled", "(b) Controlled", list(CTRL_BL_LLMS), list(REASON_CTRL), None, 2)]
     nr = len(meths)
-    H = 1.05 + 0.12 * nr  # user 10-12: shorter
+    H = 1.05 + 0.12 * nr
     fig, axs = plt.subplots(1, 2, figsize=(3.1, H), sharey=True, gridspec_kw={"wspace": 0.08, "width_ratios": [4.6, 6.2]})
     for ax, (tr, title, tags, rtags, ev, col_i) in zip(axs, panels):
         cells = {k: dict(v) for k, v in T.get(tr, {}).items()}
@@ -411,12 +410,11 @@ def fig_trap(style=None, out=None, partial=None):
                     t.set_fontweight("bold")
         ax.set_title(title, fontsize=7.5, fontweight="bold"); ax.tick_params(axis="x", labelsize=7)
     h, lab = axs[0].get_legend_handles_labels()
-    # user 10-12: two legend rows -- top: first two types, bottom: last three (column-major fill, one invisible spacer)
     from matplotlib.patches import Patch
     blank = Patch(facecolor="none", edgecolor="none")
     h = [h[0], h[2], h[1], h[3], blank, h[4]]; lab = [lab[0], lab[2], lab[1], lab[3], "", lab[4]]
     fig.legend(h, lab, fontsize=7.2, frameon=True, fancybox=False, edgecolor="#555555", framealpha=1, borderpad=0.35, handlelength=1.0,
-               columnspacing=0.6, handletextpad=0.3, loc="lower center", ncol=3, bbox_to_anchor=(0.5, 0.005))  # user 10-11: boxed
+               columnspacing=0.6, handletextpad=0.3, loc="lower center", ncol=3, bbox_to_anchor=(0.5, 0.005))
     fig.text(0.6, 0.162, "Regret ($\\times$100) by Error Type", ha="center", fontsize=7.5)
     fig.subplots_adjust(left=0.2, right=0.98, top=0.935, bottom=0.285)
     if False:  # highlight drawn per panel above
@@ -449,7 +447,7 @@ def fig_cost():
     ax.set_xticks(range(len(regs))); ax.set_xticklabels(["0", "0.05", "0.1", "0.2", "0.4"])
     ax.set_xlabel("Cost Regime ($\\times\\min(g,l)$)"); ax.set_ylabel("Regret ($\\times$100)")
     ax.legend(frameon=True, fancybox=False, edgecolor="#555555", framealpha=1, fontsize=6.5, borderpad=0.4, handlelength=1.6,
-              loc="upper left", bbox_to_anchor=(0.22, 0.99))  # boxed, moved right into the empty area (user 10-12)
+              loc="upper left", bbox_to_anchor=(0.22, 0.99))  # boxed, moved right into the empty area
     fig.tight_layout(); fig.savefig(f"{OUT}/fig_cost.pdf"); plt.close(fig)
 
 
@@ -485,7 +483,7 @@ def fig_llms():
     tags = [t for _, ts in LLM_FAMILIES for t in ts]
     y = {t: i for i, t in enumerate(tags)}
     fig, axes = plt.subplots(1, 2, figsize=(3.3, 3.3), sharey=True)
-    for ax, (title, fn, llms) in zip(axes, [("Knowledge-Required", know, KNOW_LLMS), ("Controlled", ctrl, CTRL_BL_LLMS)]):  # knowledge-required first (user 10-12)
+    for ax, (title, fn, llms) in zip(axes, [("Knowledge-Required", know, KNOW_LLMS), ("Controlled", ctrl, CTRL_BL_LLMS)]):  # knowledge-required first
         vals = [100 * x for t in llms for x in (fn(t) or ())]
         lo, hi = min(vals) / 1.6, max(vals) * 1.6
         for t in tags:
@@ -515,9 +513,9 @@ def fig_llms():
             axes[0].text(-0.3, 1 - (k + len(ts) / 2) / len(tags), "Phi-4", transform=axes[0].transAxes, ha="right", va="center", fontsize=7.5, fontweight="bold")
         k += len(ts)
     h, l = axes[0].get_legend_handles_labels()
-    fig.subplots_adjust(left=0.3, right=0.98, bottom=0.205, top=0.95, wspace=0.08)  # legend closer to the x labels (user 10-12)
+    fig.subplots_adjust(left=0.3, right=0.98, bottom=0.205, top=0.95, wspace=0.08)  # legend closer to the x labels
     fig.legend(h, l, loc="lower center", ncol=2, fontsize=7.8, frameon=True, fancybox=False, edgecolor="#555555", framealpha=1, borderpad=0.4,
-               handlelength=1.4, columnspacing=1.2, bbox_to_anchor=(0.5, 0.005))  # user 10-11: below the plot, larger and boxed, as fig_trap
+               handlelength=1.4, columnspacing=1.2, bbox_to_anchor=(0.5, 0.005))
     fig.savefig(f"{OUT}/fig_llms.pdf"); plt.close(fig)
 
 
@@ -527,7 +525,7 @@ if __name__ == "__main__":
             globals()[f](); print("ok", f)
         except Exception as e:
             print("FAIL", f, repr(e))
-    from crop_figs import crop_pdf  # user 10-11: no white margin on any side of a figure
+    from crop_figs import crop_pdf
     for f in sys.argv[1:] or ["fig_incoh", "fig_behavior", "fig_budget", "fig_scaling", "fig_lc", "fig_trap", "fig_cost", "fig_scaling_know", "fig_llms"]:
         if os.path.exists(f"{OUT}/{f}.pdf"):
             crop_pdf(f"{OUT}/{f}.pdf")

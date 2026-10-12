@@ -1,4 +1,4 @@
-"""Shared loader for the reviewer analyses (an_*.py): per (LLM tag, environment) the first-300 test scenarios with the
+"""Shared loader for the additional analyses (an_*.py): per (LLM tag, environment) the first-300 test scenarios with the
 LLM's direct distribution and its elicited specification under the frozen configuration (DIVA, DIVA-U, DIVA-DP inputs).
 Uses existing outputs only (no LLM calls)."""
 import sys, os, json

@@ -1,4 +1,4 @@
-"""LLM-free generic specification for the MAIN tables (user decision 2026-10-12): rows "Generic DIVA" / "Generic DIVA-U" in
+"""LLM-free generic specification for the MAIN tables: rows "Generic DIVA" / "Generic DIVA-U" in
 Table tab:know (first-decision DP regret, first 300 test scenarios) and Table tab:episodes (episode regret).
 Generic specification: every check (and known finding) has the same strength delta in log-odds, the direction is the
 designer-set one (a finding raises the risk; controlled: the stated direction), the base rate is the stated one, and the

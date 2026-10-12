@@ -1,4 +1,4 @@
-"""R4 MUST-FIX 1 control: cost-discounted DIVA (DIVA-kappa). A check is acquired if VOI_point(e) > kappa * c_e, with kappa
+"""cost-discounted DIVA (DIVA-kappa). A check is acquired if VOI_point(e) > kappa * c_e, with kappa
 selected per (LLM, environment) on that LLM's DEV elicitation (dev labels used, like the tuned Fac-EIG baseline).
 This tests whether DIVA-U's gain is equivalent to a tuned acquisition bonus. Writes results/kappa.json:
   {"tag:env": {"kappa": k, "dev": {k: ratio}}}"""

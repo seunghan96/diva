@@ -11,7 +11,7 @@ sys.path.insert(0, HERE)
 from evalx import read
 
 TAB = ["taiwan", "german", "cdc", "heart"]; SEC = ["ret_1", "ret_5", "vol_5", "vol_20"]
-WORLDS = int(os.environ.get("EPL_WORLDS", "1"))  # user rule 10-11: same number of sampled worlds for all 20 LLMs (1; world 0)
+WORLDS = int(os.environ.get("EPL_WORLDS", "1"))
 METHODS = ["direct", "cot_need", "bed_llm", "voi_prompt", "pal", "sc_cot", "react", "finrisk_ask", "voi_paper"]
 
 

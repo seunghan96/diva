@@ -1,4 +1,4 @@
-"""Higher-powered realized-utility replay on real records (reviewer S3, 2026-10-11).
+"""Higher-powered realized-utility replay on real records (additional S3, 2026-10-11).
 Scenarios: envs_tab/data/{taiwan,cdc}_rz.jsonl.gz = original test (2,000) + fresh (1,000) + big (2,000) scenarios, each from
 a distinct test record. Checks reveal the record's actual values; the final action is scored with the record's actual
 outcome; utilities are normalized by l and net of costs (as in tab:realized).

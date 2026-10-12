@@ -195,7 +195,7 @@ class FleetTransport:
 
 
 def make_transport(model, conc=64, prefer="fleet"):
-    """FleetTransport over infoseek/serving (preferred), else dcfr_lib.Client over the lead's registry."""
+    """FleetTransport over infoseek/serving (preferred), else dcfr_lib.Client over the the registry."""
     if prefer == "fleet" and os.path.exists(os.path.join(INFOSEEK, "serving", "client.py")):
         try:
             return FleetTransport(model)

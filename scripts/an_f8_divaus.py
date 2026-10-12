@@ -1,4 +1,4 @@
-"""Reviewer request (F8-D): DIVA-U whose uncertainty about the elicited strengths shrinks as checks are observed, in full
+"""DIVA-U whose uncertainty about the elicited strengths shrinks as checks are observed, in full
 acquire-then-decide episodes on the knowledge-required environments (same exact episode machinery as episodes_know.py,
 test rows 0-149 as in Table tab:episodes). Schedules of the log-odds scale after n acquisitions (sigma_0 = 1, DIVA-U):
   us_sqrt: 1/sqrt(1+n),  us_inv: 1/(1+n),  us_first: 1 at the first decision, 0 afterwards (DIVA after the first step).

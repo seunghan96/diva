@@ -1,4 +1,4 @@
-"""Reviewer S4: cost of the first acquisition decision for every method, on the controlled and the knowledge-required
+"""cost of the first acquisition decision for every method, on the controlled and the knowledge-required
 environments, measured from the call logs of all 20 LLMs (first 300 test scenarios per environment; no LLM calls).
   LLM calls       number of LLM requests per scenario (a self-consistency request with n samples counts once)
   Gen. tokens     generated tokens per scenario (characters / 4 of every generated text; letter-probability reads generate none)
@@ -63,7 +63,7 @@ def main():
     for m, e, t, v in R:
         if v is not None:
             per[(m, e)][t] = v
-    groups = {"knowledge": TAB + SEC, "controlled": CDOMS}  # knowledge-required first (user 10-12)
+    groups = {"knowledge": TAB + SEC, "controlled": CDOMS}  # knowledge-required first
     out = {}
     for m in BL:
         for g, es in groups.items():

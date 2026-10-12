@@ -1,4 +1,4 @@
-"""Binary-outcome track (lead's DESIGN.md section 2 interface): Y in {0,1} (1 = adverse), actions {act, pass},
+"""Binary-outcome track (the DESIGN.md section 2 interface): Y in {0,1} (1 = adverse), actions {act, pass},
 U(act,0)=+g, U(act,1)=-l, U(pass,.)=0, binary checks with stated reliabilities, exact VOI / EIG / DP.
 
 usage: python gen_binary.py --domain finance --split test --n 3000 [--workers 32]

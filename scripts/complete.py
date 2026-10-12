@@ -1,11 +1,11 @@
-"""Completeness rules for every table cell and text macro (user rule: never present unfinished numbers as final).
+"""Completeness rules for every table cell and text macro.
 
 A number is printed only when it is computed on the COMPLETE intended set: every LLM of the intended LLM set below and
 every scenario of the stated slice, for every compared method. Otherwise tables print PH (gray TBD) and numbers.tex
 macros expand to TXT (red [TBD]) with a comment saying what is missing.
 
 Intended LLM sets (from the paper text, captions and the job files in jobs/*.tsv):
-  KNOW_LLMS      knowledge-required environments (20 tags, fixed by the user)
+  KNOW_LLMS      knowledge-required environments (20 tags)
   K4_LLMS        pre-registered knowledge episodes (KNOW_LLMS minus the 70B-class LLMs, PREREG_KNOW4)
   REASON_KNOW    native reasoning on knowledge-required environments (jobs/g4_know_think.tsv)
   CTRL_LLMS      controlled environments, DIVA and direct policy (jobs/fac_test_bin + m_test_dir_bin + q_scaling)
@@ -27,7 +27,7 @@ KNOW_LLMS = ["q06b", "q17b", "q4b", "q8", "q14", "q32", "q25_7", "q25_14", "q72"
 K4_LLMS = [t for t in KNOW_LLMS if t not in ("l70", "q72")]
 REASON_KNOW = ["q06b", "q17b", "q4b", "q8", "q14", "q32", "oss", "r1_7", "r1_14"]  # F4 10-12: Qwen3-0.6B added (supports thinking; outputs valid)
 CTRL_LLMS = list(KNOW_LLMS)
-CTRL_BL_LLMS = list(KNOW_LLMS)  # user 10-10: every table uses the same 20 LLMs
+CTRL_BL_LLMS = list(KNOW_LLMS)
 REASON_CTRL = list(REASON_KNOW)  # same reasoning-capable LLMs as knowledge envs
 EP_CTRL_LLMS = list(KNOW_LLMS)
 MS_LLMS = list(KNOW_LLMS)
@@ -89,22 +89,22 @@ def ctrl_ok(B, tag, m="diva"):
 
 
 # ---------------------------------------------------------------------------------------------------------------------
-# Canonical orders and display names (user rule 2026-10-10): every table, figure and list uses these orders and names.
+# Canonical orders and display names: every table, figure and list uses these orders and names.
 # Generators sort with msort()/lsort()/esort(); scripts/check_consistency.py asserts them on paper/tables/*.tex.
 # ---------------------------------------------------------------------------------------------------------------------
 DAG = "$^\\ddagger$"
-# canonical METHOD order (display names, LaTeX). Core list from the user, extra methods slotted in:
+# canonical METHOD order (display names, LaTeX). core list with extra methods slotted in:
 #   prompting (Direct ... Reason.), extra LLM controls, EIG/ES policies, reference policies, hybrids, generic, tuned DIVA, DIVA.
-METHOD_GROUPS = [  # user-approved categories (layout A), each contiguous in METHOD_ORDER
+METHOD_GROUPS = [
     ("Prompting", ["Direct", "CoT", "SC", "ReAct", "Reason.", "Salience", "Uncertainty"]),
     ("Decision-aware prompting", ["Ask-P", "VoI-P", "VoI-Ask"]),
     ("Information gain", ["BED-LLM", "EIG (beliefs)"]),
-    ("Program-aided", ["PAL", "VoI-Tool"]),  # VoI-Tool: the LLM fills in a provided VOI calculator (reviewer request)
+    ("Program-aided", ["PAL", "VoI-Tool"]),  # VoI-Tool: the LLM fills in a provided VOI calculator (additional analyses)
     ("Reference", ["Never", "Always ask", "Direct $\\rightarrow$ \\diva{}", "Always ask $\\rightarrow$ \\diva{}", "Random", "Threshold heur.", "Supervised ref.", "Knowledge-free \\diva{}", "Knowledge-free \\diva{}-U",
                    "\\diva{}-$\\kappa^\\ddagger$", "\\diva{}-$\\beta^\\ddagger$"]),
-    # LLM-free specification (every check the same strength; user decision 2026-10-12: rows of the main tables)
+    # LLM-free specification (every check the same strength
     ("LLM-free", ["Generic DP", "Generic \\diva{}", "Generic \\diva{}-U"]),
-    # variants of DIVA with its criterion replaced (not baselines; user decision 2026-10-11): ablation tables only
+    # variants of DIVA with its criterion replaced (not baselines
     ("Ablation", ["\\diva{} w/ EIG", "\\diva{} w/ EIG" + DAG, "\\diva{} w/ ES", "\\diva{} w/ ES" + DAG]),
     ("Ours", ["\\diva{} (elic.)", "\\diva{}", "\\diva{}-U", "\\diva{}-DP"]),
 ]
@@ -215,7 +215,7 @@ def esort(envs):
 
 
 def fmt_best(vals, nd=2, scale=1.0):
-    """format a list of lower-is-better values (None -> TBD): best bold, second best underlined (user convention)"""
+    """format a list of lower-is-better values (None -> TBD): best bold, second best underlined"""
     xs = sorted(set(round(v * scale, nd) for v in vals if v is not None))
     out = []
     for v in vals:
@@ -230,14 +230,14 @@ def fmt_best(vals, nd=2, scale=1.0):
     return out
 
 
-# family-grouped LLM rows for every per-LLM table (user rule 2026-10-10, style of figs/fig_llms.pdf):
+# family-grouped LLM rows for every per-LLM table:
 # column 1 = Family (bold, multirow, vertically centered), column 2 = Size, a \cmidrule between families.
 SIZE_OF = {"q06b": "0.6B", "q17b": "1.7B", "q4b": "4B", "q8": "8B", "q14": "14B", "q32": "32B", "q25_7": "7B", "q25_14": "14B",
            "q72": "72B", "r1_7": "7B", "r1_14": "14B", "l8": "8B", "l70": "70B", "g9": "9B", "g12": "12B", "g27": "27B",
            "m7": "7B", "msm": "24B", "phi4": "14B", "oss": "20B"}
 FAMILY_NOTE = "Gemma: Gemma-2/3, Llama: Llama-3.1/3.3, Mistral 24B: Mistral-Small, DeepSeek-R1: R1-Distill-Qwen."
 FAM_HEAD = "Family & Size"
-FAM_LABEL = {}  # user 10-12: family names on one line (DeepSeek-R1 no longer split)
+FAM_LABEL = {}
 
 
 def family_rows(tags, cells, ncols, lead=None):

@@ -1,4 +1,4 @@
-"""Realized-replay scenario files (reviewer S3, 2026-10-11): test (2,000) + fresh (1,000) + big (2,000) scenarios of
+"""Realized-replay scenario files (additional S3, 2026-10-11): test (2,000) + fresh (1,000) + big (2,000) scenarios of
 Taiwan / CDC, each with one 'episode' world equal to the actual record (state = y_true, outcomes = record values), so that
 baselines.run --mode episode replays LLM policies on the real records. Writes envs_tab/data/{ds}_rz.jsonl.gz."""
 import gzip, json, os
